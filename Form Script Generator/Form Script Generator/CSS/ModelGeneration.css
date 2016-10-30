@@ -1,0 +1,19 @@
+﻿body {
+    padding:inherit;
+    padding-left:inherit
+}
+.msgloading {
+    background: url("../Images/loading.gif") center no-repeat rgba(110, 128, 128,0.22);
+    opacity: 0.5;
+    cursor: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 18;
+    /* Positioning */
+     position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+}
+  

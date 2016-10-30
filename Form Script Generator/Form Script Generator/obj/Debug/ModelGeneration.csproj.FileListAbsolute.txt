@@ -1,0 +1,7 @@
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\bin\Model Generation.dll.config
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\bin\Model Generation.dll
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\bin\Model Generation.pdb
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\obj\Debug\ModelGeneration.csprojResolveAssemblyReference.cache
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\obj\Debug\Model Generation.dll
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\obj\Debug\Model Generation.pdb
+E:\Projects\CRM Model Kit\Trunk\Code\Form Script Generator\Form Script Generator\bin\Model Generation.XML
