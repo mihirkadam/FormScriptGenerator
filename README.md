@@ -62,7 +62,7 @@ Following are SDK functions are supported by latest release
       - Field Properties
 
                        1. setValue 
-                       2. setValue 
+                       2. getValue 
                        3. getAttributeType 
                        4. getFormat
                        5. getIsDirty
