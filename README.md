@@ -59,7 +59,7 @@ Following are SDK functions are supported by latest release
 ###Version: 1.0
 - Date: 1 Nov, 2016
 
-      - Field Properties
+      - [Field Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Field-Properties)
 
                        1. setValue 
                        2. getValue 
@@ -106,7 +106,7 @@ Following are SDK functions are supported by latest release
                        43. hideAutoComplete
                        44. getAttribute
 
-      - Form Properties
+      - [Form Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Form-Properties)
 
                        1. close
                        2. getFormType
@@ -117,7 +117,7 @@ Following are SDK functions are supported by latest release
                        7. refreshRibbon
                        8. getCurrentControl
 
-      - Entity Properties
+      - [Entity Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Entity-Properties)
 
                        1. getEntityName
                        2. getId
@@ -126,7 +126,7 @@ Following are SDK functions are supported by latest release
                        5. getDataXml
                        6. getPrimaryAttributeValue
 
-      - Context Properties
+      - [Context Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Context-Properties)
 
                        1. getClientUrl
                        2. getUserId
