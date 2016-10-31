@@ -1,6 +1,6 @@
 # Form Script Generator for Dynamics CRM 2016 update 1 and above.
 [![ghit.me](https://ghit.me/badge.svg?repo=mihirkadam/Form-Script-Generator)](https://ghit.me/repo/mihirkadam/Form-Script-Generator)
->Helps you to write Dynamics CRM SDK functions in more efficient and easy way with the help of VSIntelliSense. :sparkles: :boom:
+>Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense. :sparkles: :boom:
   
 
 ##The Library is designed for 
@@ -9,8 +9,8 @@
 - Field validations.
 
 ###Following are some screen capture 
-![Alt text](/Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true "Visual Studio IntelliSense")
-![Alt text](/Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true "Visual Studio IntelliSense")
+![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true "Visual Studio IntelliSense")
+![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true "Visual Studio IntelliSense")
 
 
 ###Example:
@@ -32,12 +32,27 @@ The wiki has a great section on how to get started
 - Documentation: Github wiki
 - Feedback: Open an issue
 
+##Compatibility Matrix
+### CRM Online 
+| <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px" /></br>2016 Update 1 | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="Dynamics 365" width="16px" height="16px" /></br>Dynamics 365 | 
+| --------- | --------- | 
+| v8.1| v8.2 | 
 
-## Browsers support 
+### Browsers 
 
-| [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png" alt="Edge" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/opera.png" alt="Opera" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | 
+| [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png?" alt="Edge" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/opera.png" alt="Opera" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | 
 | --------- | --------- | --------- | --------- | --------- |
 | v38.0| v49.0 | v54.0 |v5.1| v41.0
+
+### Phones 
+| <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px" /></br>Android | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px" /></br>iOS | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px" /></br>Windows | 
+| --------- | --------- | --------- | 
+| v6| v10 | v10 
+
+### Tablets 
+| <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px" /></br>Android | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px" /></br>iOS | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px" /></br>Windows | 
+| --------- | --------- | --------- | 
+| v6| v10 | v10 
 
 ##Features 
 Following are SDK functions are supported by latest release 
@@ -137,6 +152,10 @@ Following are SDK functions are supported by latest release
 
 ##Feature Request
 Take charge and [add your idea](http://feathub.com/mihirkadam/Form-Script-Generator) or [vote on your favorite feature](http://feathub.com/mihirkadam/Form-Script-Generator) to be implemented:
+
+
+##Minimum Software Requirement 
+- Visual Studio 2013 or above.
 
 ##License
 MIT - see [ MIT licence information](LICENSE)
