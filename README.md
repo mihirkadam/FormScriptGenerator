@@ -13,7 +13,7 @@
 ![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true "Visual Studio IntelliSense")
 ![Alt text](https://github.com/mihirkadam/FormScriptGenerator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-2.png?raw=true "Visual Studio IntelliSense")
 ![Alt text](https://github.com/mihirkadam/FormScriptGenerator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-3.png?raw=true "Visual Studio IntelliSense")
-![Alt text](https://github.com/mihirkadam/FormScriptGenerator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-4.png?raw=true "Visual Studio IntelliSense")
+
 
 
 ###Example:
