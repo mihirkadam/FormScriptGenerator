@@ -101,7 +101,7 @@ var modelGeneration = {
         modelFile += '    ' + tempData + '.field = {\n';
         var desc = "", displayName = "";
         for (var cnt = 0; cnt < data.Attributes.length; cnt++) {
-            if (!data.Attributes[cnt].IsLogical) {
+            if (!data.Attributes[cnt].IsLogical && data.Attributes[cnt].IsValidForAdvancedFind.Value) {
                 if (data.Attributes[cnt]["Description"] && data.Attributes[cnt]["Description"]["UserLocalizedLabel"] && data.Attributes[cnt]["Description"]["UserLocalizedLabel"]["Label"]) {
                     desc = data.Attributes[cnt]["Description"]["UserLocalizedLabel"]["Label"];
                 }

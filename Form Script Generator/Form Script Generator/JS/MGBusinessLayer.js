@@ -65,7 +65,7 @@ BL.MG = function () {
 
         callBacks.Success = successCallback;
         callBacks.Error = errorCallback;
-        MK.WebAPI.Retrieve("EntityDefinitions", entityId, "$select=LogicalName&$expand=Attributes($select=LogicalName,AttributeType,IsLogical,Description,DisplayName)", null, fetchAttributeMetadataCallBack, errorHandler, null, null, null, true);
+        MK.WebAPI.Retrieve("EntityDefinitions", entityId, "$select=LogicalName&$expand=Attributes($select=LogicalName,AttributeType,IsLogical,Description,DisplayName,IsValidForAdvancedFind)", null, fetchAttributeMetadataCallBack, errorHandler, null, null, null, true);
     };
     var fetchAttributeMetadataCallBack = function (result) {
         "use strict";

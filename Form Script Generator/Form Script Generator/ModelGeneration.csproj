@@ -84,6 +84,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Solutions\FormScriptGenerator_managed_latest.zip" />
+    <Content Include="Solutions\FormScriptGenerator_unmanaged_latest.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

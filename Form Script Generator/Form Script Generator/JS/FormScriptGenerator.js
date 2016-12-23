@@ -26,7 +26,7 @@
 *
 *       New Functions - Field Property
 *                       1.setValue 
-*                       2.setValue 
+*                       2.getValue 
 *                       3.getAttributeType 
 *                       4.getFormat
 *                       5.getIsDirty
@@ -108,7 +108,7 @@ var MK = MK || {};
 MK.FSG = MK.FSG || {};
 MK.FSG.Main = (function () {
 
-    var solutionVersion = "1.0.0.0";
+    var solutionVersion = 1.0;
     var version = 1.0;
     var XrmPage = (function () {
         /// <summary>

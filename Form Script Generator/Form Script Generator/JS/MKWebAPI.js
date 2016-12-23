@@ -121,9 +121,16 @@ MK.WebAPI = {
             uri = 'fetchXml=' + uri;
             isFetchXML = true;
         }
+
         //for single entity
         if (entityId) {
-            uri = entityName + '(' + entityId + ')';
+
+            if (uri) {
+                uri = entityName + '(' + entityId + ')' + "?" + uri;
+            } else {
+                uri = entityName + '(' + entityId + ')';
+            }
+
         }
         else {
             uri = entityName + "?" + uri;
