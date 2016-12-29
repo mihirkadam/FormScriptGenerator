@@ -55,8 +55,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\ModelGeneration.css" />
+    <Content Include="Images\android_logo.jpg" />
+    <Content Include="Images\apple-logo.png" />
+    <Content Include="Images\Configuration-1.png" />
+    <Content Include="Images\Configuration-2.png" />
+    <Content Include="Images\Configuration-3.gif" />
+    <Content Include="Images\Configuration-4.gif" />
+    <Content Include="Images\dynamics-crm-logo.png" />
+    <Content Include="Images\Installation-1.png" />
+    <Content Include="Images\Installation-10.png" />
+    <Content Include="Images\Installation-2.png" />
+    <Content Include="Images\Installation-3.png" />
+    <Content Include="Images\Installation-4.png" />
+    <Content Include="Images\Installation-6.png" />
+    <Content Include="Images\Installation-7.png" />
+    <Content Include="Images\Installation-8.png" />
+    <Content Include="Images\Installation-9.png" />
+    <Content Include="Images\iOS-logo.png" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\VSIntelliSense-Field-1.png" />
+    <Content Include="Images\VSIntelliSense-Property-1.png" />
+    <Content Include="Images\VSIntelliSense-Property-2.png" />
+    <Content Include="Images\VSIntelliSense-Property-3.png" />
+    <Content Include="Images\VSIntelliSense-Property-4.png" />
+    <Content Include="Images\windows-logo.jpg" />
     <Content Include="JS\ExampleFSG.js" />
+    <Content Include="JS\xml2json.min.js" />
     <Content Include="ModelGeneration.html" />
     <Content Include="JS\MGBusinessLayer.js" />
     <Content Include="JS\MKWebAPI.js" />

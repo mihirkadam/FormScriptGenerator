@@ -35,7 +35,7 @@ $(function () {
 
 
 var modelGeneration = {
-    data: { entityName: "", fileName: "" },
+    data: { entityName: "", fileName: "", attributeMetadata: [], formMetadata: [] },
     BindData: function (data) {
         /// <summary>
         /// Bind all data to HTML
@@ -73,12 +73,14 @@ var modelGeneration = {
         })
     },
 
-    createModelFile: function (data) {
+    createModelFile: function () {
         /// <summary>
         /// get all attributes for selected entity.
         /// </summary>
         "use strict";
+        var data = modelGeneration.data.attributeMetadata;
         var tempData = data.LogicalName.toLowerCase() + "Model";
+
 
         var modelFile = '"use strict"\n';
         modelFile += 'var MK = MK || {};\n';
@@ -97,6 +99,7 @@ var modelGeneration = {
         modelFile += '    ' + tempData + '.context = {};\n';
         modelFile += '    MK.FSG.Main.ContextProperties(' + tempData + '.context);\n\n\n';
 
+        ///fields
 
         modelFile += '    ' + tempData + '.field = {\n';
         var desc = "", displayName = "";
@@ -118,6 +121,71 @@ var modelGeneration = {
             }
         }
         modelFile += '      }\n\n'
+
+        //tabs 
+        var tabNames = [];
+        var x2js = new X2JS();
+        var forms = modelGeneration.data.formMetadata;
+        var formJSON = [];
+        modelFile += '    ' + tempData + '.tab = {\n';
+        for (var fcnt = 0; fcnt < forms.length; fcnt++) {
+            formJSON.push(x2js.xml_str2json(forms[fcnt]["formxml"]).form);
+            for (var tcount = 0; tcount < formJSON[fcnt].tabs.tab.length; tcount++) {
+                var tab = formJSON[fcnt].tabs.tab[tcount];
+                if (tabNames.indexOf(tab["_name"]) > -1) {
+                    continue;
+                }
+                modelFile += '        /// <field name="' + tab["_name"] + '"> Label: ' + tab["labels"]["label"]["_description"] + '</field>\n ';
+                modelFile += '        ' + tab["_name"] + ':{ },\n';
+                tabNames.push(tab["_name"])
+            }
+        }
+        modelFile += '      }\n\n'
+
+
+        //sections
+        var sectionNames = [];
+        modelFile += '    ' + tempData + '.section = {\n';
+        //loop for forms
+        for (var fcnt = 0; fcnt < formJSON.length; fcnt++) {
+            //loop for tabs
+            for (var tcount = 0; tcount < formJSON[fcnt].tabs.tab.length; tcount++) {
+                var tab = formJSON[fcnt].tabs.tab[tcount];
+                //loop for multiple columns
+                for (var columncount = 0; columncount < tab["columns"]["column"].length; columncount++) {
+                    var column = tab["columns"]["column"][columncount];
+                    //loop for section
+                    for (var scount = 0; scount < column["sections"]["section"].length; scount++) {
+                  
+                        var section = column["sections"]["section"][scount];
+                        if (sectionNames.indexOf(section["_name"]) > -1) {
+                            continue;
+                        }
+                        modelFile += '        /// <field name="' + section["_name"] + '" > Label: ' + section["labels"]["label"]["_description"] + '</field> \n ';
+                        modelFile += '        ' + section["_name"] + ':{ },\n';
+                        sectionNames.push(section["_name"]);
+                    }
+                }
+            }
+        }
+        modelFile += '      }\n\n'
+
+        //header
+        var headerNames = [];
+        modelFile += '    ' + tempData + '.header = {\n';
+        //for headers
+        for (var fcount = 0; fcount < formJSON.length; fcount++) {
+            for (var hcount = 0; hcount < formJSON[fcount]["header"]["rows"]["row"]["cell"].length; hcount++) {
+                var cell = formJSON[fcount]["header"]["rows"]["row"]["cell"][hcount];
+                if (headerNames.indexOf(cell["_datafieldname"]) > -1) {
+                    continue;
+                }
+                modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData.field + '.field' + [cell["control"]["_datafieldname"]] + ',\n';
+                headerNames.push(cell["_datafieldname"]);
+            }
+        }
+        modelFile += '      }\n\n'
+
         modelFile += '    var dataType={};\n';
         modelFile += '    for (var key in ' + tempData + '.field) {\n';
         modelFile += '   dataType=' + tempData + '.field[key].dataType ;\n';
@@ -125,7 +193,12 @@ var modelGeneration = {
         modelFile += '         MK.FSG.Main.FieldProperties(' + tempData + '.field[key],key, dataType);\n';
         modelFile += '      }\n\n\n';
 
-
+        modelFile += '    dataType={};\n';
+        modelFile += '    for (var key in ' + tempData + '.header) {\n';
+        modelFile += '   dataType=' + tempData + '.header[key].dataType ;\n';
+        modelFile += '   ' + tempData + '.header[key] = {};\n';
+        modelFile += '         MK.FSG.Main.FieldProperties(' + tempData + '.header[key],' + '"header_"+' + 'key, dataType);\n';
+        modelFile += '      }\n\n\n';
 
         modelFile += '    return ' + tempData + ';\n';
         modelFile += '}\n\n\n';

@@ -1,4 +1,5 @@
 ﻿/// <reference path="MKWebAPI.js" />
+/// <reference path="ModelGeneration.js" />
 
 
 /**
@@ -65,7 +66,7 @@ BL.MG = function () {
 
         callBacks.Success = successCallback;
         callBacks.Error = errorCallback;
-        MK.WebAPI.Retrieve("EntityDefinitions", entityId, "$select=LogicalName&$expand=Attributes($select=LogicalName,AttributeType,IsLogical,Description,DisplayName,IsValidForAdvancedFind)", null, fetchAttributeMetadataCallBack, errorHandler, null, null, null, true);
+        MK.WebAPI.Retrieve("EntityDefinitions", entityId, "$select=LogicalName,ObjectTypeCode&$expand=Attributes($select=LogicalName,AttributeType,IsLogical,Description,DisplayName,IsValidForAdvancedFind)", null, fetchAttributeMetadataCallBack, errorHandler, null, null, null, true);
     };
     var fetchAttributeMetadataCallBack = function (result) {
         "use strict";
@@ -73,7 +74,35 @@ BL.MG = function () {
             callBacks.Error(new Error("Model Kit: Does not have access to system/custom entity attributes. Please contact System Administrator."));
             return;
         }
-        callBacks.Success(result);
+        modelGeneration.data.attributeMetadata = result;
+        fetchFormMetadata();
+    };
+    var fetchFormMetadata = function () {
+        "use strict";
+
+        var objectTypeCode = modelGeneration.data.attributeMetadata.ObjectTypeCode;
+        var fetchXml="<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false' >"+
+                      "<entity name='systemform' >"+
+                        "<attribute name='formxml' />"+
+                        "<filter type='and' >"+
+                          "<condition attribute='formactivationstate' operator='eq' value='1' />"+
+                          "<condition attribute='type' operator='eq' value='2' />"+
+                          "<condition attribute='objecttypecode' operator='eq' value='" + objectTypeCode + "' />" +
+                        "</filter>"+
+                      "</entity>"+
+                    "</fetch>";
+
+        MK.WebAPI.Retrieve("systemforms", null, fetchXml, null, fetchFormMetadataCallBack, errorHandler, null, null, null, true);
+
+    };
+    var fetchFormMetadataCallBack = function (result) {
+        "use strict";
+        if (!result) {
+            callBacks.Error(new Error("Model Kit: Does not have access to system/custom entity attributes. Please contact System Administrator."));
+            return;
+        }
+        modelGeneration.data.formMetadata = result.value;
+        callBacks.Success();
     };
     var errorHandler = function (error) {
         "use strict";

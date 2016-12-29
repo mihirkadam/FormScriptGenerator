@@ -5,88 +5,90 @@
     <title>Form Script Generator</title>
     <link href="CSS/ModelGeneration.css" rel="stylesheet" />
     <script type="text/javascript" src="../../ClientGlobalContext.js.aspx"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="JS/MKWebAPI.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="JS/xml2json.min.js"></script>
+    <script src="JS/MKWebAPI.js"></script>
     <script src="JS/MGBusinessLayer.js"></script>
     <script src="JS/ModelGeneration.js"></script>
+
     <style>
-          .wrapper {
-        width: 90%;
-        max-width: 900px;
-        border: 2px solid #a1a1a1;
-        height: auto;
-        font-family: verdana;
-        margin: 0 auto;
-    }
-
-    .heading_div {
-        padding: 10px 8px;
-        color: #000;
-        fonr-size: 14px;
-        text-align: center;
-        border-bottom: 1px solid #1a1a1a;
-        font-weight: bold;
-    }
-
-    .container {
-        font-size: 12px;
-        border-bottom: 1px solid #efefef;
-    }
-
-    .heading_div .logo_section {
-        float: right;
-    }
-
-    .section {
-        padding: 40px 50px;
-    }
-
-        .section label {
-            float: none;
-            width: 20px;
-            padding: 7px 2px;
+        .wrapper {
+            width: 90%;
+            max-width: 900px;
+            border: 2px solid #a1a1a1;
+            height: auto;
+            font-family: verdana;
+            margin: 0 auto;
         }
 
-        .section span {
-            float: left;
-            width: 92%;
-        }
-
-        .section input[type="text"] {
-            width: 100%;
-            padding: 5px;
-        }
-
-        .section input[type="button"] {
-            width: 200px;
-            padding: 10px 15px;
-            background: #4285f4;
-            border: none;
-            outline: none;
-            margin: 12px 0px;
-            color: #fff;
-            font-size: 14px;
+        .heading_div {
+            padding: 14px 8px;
+            color: #000;
+            fonr-size: 14px;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
             font-weight: bold;
-            cursor: pointer;
-            float: left;
-            margin-right: 15px;
         }
 
-        .section select {
-            width: 200px;
-            padding: 9px 15px;
-            /*background: #4285f4;
-            border: none;*/
-            outline: none;
-            margin: 12px 0px;
-            /*color: #fff;*/
-            font-size: 14px;
-            /*font-weight: bold;*/
-            cursor: pointer;
-            float: left;
-            margin-right: 15px;
+        .container {
+            font-size: 12px;
+            border-bottom: 1px solid #efefef;
         }
+
+        .heading_div .logo_section {
+            float: right;
+        }
+
+        .section {
+            padding: 40px 50px;
+        }
+
+            .section label {
+                float: none;
+                width: 20px;
+                padding: 7px 2px;
+            }
+
+            .section span {
+                float: left;
+                width: 92%;
+            }
+
+            .section input[type="text"] {
+                width: 100%;
+                padding: 5px;
+            }
+
+            .section input[type="button"] {
+                width: 200px;
+                padding: 10px 15px;
+                background: #4285f4;
+                border: none;
+                outline: none;
+                margin: 12px 0px;
+                color: #fff;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                float: left;
+                margin-right: 15px;
+            }
+
+            .section select {
+                width: 200px;
+                padding: 9px 15px;
+                /*background: #4285f4;
+            border: none;*/
+                outline: none;
+                margin: 12px 0px;
+                /*color: #fff;*/
+                font-size: 14px;
+                /*font-weight: bold;*/
+                cursor: pointer;
+                float: left;
+                margin-right: 15px;
+            }
     </style>
 
 </head>
@@ -96,8 +98,8 @@
         <div class="heading_div">
             Form Script Generator
             <div class="logo_section">
-                <a href="https://formscriptgenerator.codeplex.com" target="_blank">
-                    <img title="Check out the project on CodePlex" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3AoZFikrPtjPKQAAAmVJREFUWMPtVzFv00AU/t7FIoZChYQCCmuUpE4oafkJMFCUH8BCkWBgYWMtVFBg6cBUdUFigHZgYWCIyAAzYmiapHaSRl1BJGIBIRLku8eSVJFrO05TK0LqJ91i3d337t1333sGjvG/49KcgZcr7w69ntw+pjNJNKwmUkYiHo1G74GQJ1AOhBOD85gZ1ZJFALC5WlybPn32PoMDkysl3QNIZRKxaDT6mogWiMhzA2ZGZcvcn/D2xadnZ6aml5gZfuv6kFJCOD9mczO3dF1vCSGuB9lkEDcfXH346/fP50QE5mCZEA7yR5qmvQHAXtdz1EGIwZNrmrYCADTq0ccIgtKZJBgqput6CwCPQu7UgBPDNCGlhGhYTfQEx+Oe/DCZECkjESeiBb87595qZj4wRgnC9Qpm5zLLIiKe+Gea21LKO2a5XnAzop3t2tBA3q9/Zi2iuTxDwjU/ZmZuVbbMC0QouM0JQu77CgiU8VQoEUlb3p2dN7CzXQ/FyjUQzvmp3KzUC2HWEjHpYibA+OFzBcjmZvKz80Z4ATDY8hNhJBJ5VS3VEFYQAoyPfiIkotjlK9nvSnHeqx8YB5QyEnH9pP51SNllIiKn8Qz2A37oW7KrFe/W9r4x84deBfTMRF8TzhGU3NOK05kkut3ubWYmDlrEAyJIgyIaVhO71l5bSrl4lMUoaHe07wNmub5h2/byYPEJm/yAEZnl+lPbthd7lZHDJnd1QrNc3+h0OueVUsVREzEquacVE0S7WrJudP50LiqpHiulvrDiv379wOZqce2UPrVkSxtSSdjSHjqksif/Y3KMieMfgjR9jqaKMJIAAAAASUVORK5CYII=" />
+                <a href="https://github.com/mihirkadam/FormScriptGenerator" target="_blank">
+                    <img title="Check out the project on GitHub" src="Images/GitHub_logo32px.png" />
                 </a>
                 <a href="https://www.paypal.me/mihirkadam" target="_blank">
                     <img title="Feel free to donate if this saved you some time" src="data:image/png;base64,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" />
@@ -109,11 +111,11 @@
 
             <div style="clear:both;"></div>
             <div class="section">
-                <label>1. Form Script Generator : This is common JavaScript file contains all SDK functions and properties.</label>
+                <label><b>1. Form Script Generator</b> : Common JavaScript file contains all SDK functions and properties.</label>
                 <div style="clear:both;"></div>
                 <span>
                     <!--<input type="text">-->
-                   
+
                     <a href="JS/FormScriptGenerator.js" id="downloadFSGLink" download="FormScriptGenerator.js"> </a>
                     <input type="button" value="Download" onclick="modelGeneration.donloadFile('FormScriptGenerator')">
                 </span>
@@ -122,7 +124,7 @@
             <hr />
             <div class="section">
                 <label>
-                    2. Entity Model : This is specific to particular entity contains fields definition.
+                    <b> 2. Entity Model</b> :Specific to particular entity contains fields definition.
                 </label>
                 <div style="clear:both;"></div>
                 <span>
@@ -142,12 +144,12 @@
             <hr />
             <div class="section">
                 <label>
-                    3. Example File & Documentation :
+                    <b>3. Example File & Documentation :</b>
                 </label>
                 <div style="clear:both;"></div>
                 <span>
                     <!--<input type="text">-->
-                    <a href="https://crmformscriptgenerator.codeplex.com/documentation" target="_blank">Click here</a> to see a documentation for Form Script Generator. You can simply click on download to see example file for development/learning.<br />
+                    <a href="https://github.com/mihirkadam/FormScriptGenerator/wiki" target="_blank">Click here</a> to see a documentation for Form Script Generator. You can simply click on download to see example file for development/learning.<br />
                     <a href="JS/ExampleFSG.js" id="downloadFSGExampleLink" download="ExampleFSG.js"> </a>
                     <input type="button" value="Download" onclick="modelGeneration.donloadFile('ExampleFSG')">
                 </span>

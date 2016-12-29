@@ -35,6 +35,8 @@ var ExampleFSG = {
 
         //var test=  MK.FSGEntity.field.versionnumber.value;
 
+        
+
         ///set value to name field(String Type)
         MK.FSGEntity.field.name.value = "Demo Example - 15/08/2016";
 
@@ -154,7 +156,7 @@ var ExampleFSG = {
         // MK.FSGEntity.field.name.fireOnKeyPress = true;
 
         // getAttribute 
-
+        
 
     },
 

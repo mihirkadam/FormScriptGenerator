@@ -41,7 +41,7 @@ MK.FSG.Model = function (value) {
             dataType: "Lookup"
         },
         /// <field name="modifiedon" type="DateTime"> DisplayName: Modified On
-        /// <para />Description: Shows the date and time when the record was last updated. The date and time are displayed in the time zone selected in Microsoft Dynamics CRM options. </field>
+        /// <para />Description: Shows the date and time when the record was last updated. The date and time are displayed in the time zone selected in Microsoft Dynamics 365 options. </field>
         modifiedon: {
             dataType: "DateTime"
         },
@@ -70,6 +70,11 @@ MK.FSG.Model = function (value) {
         openrevenue: {
             dataType: "Money"
         },
+        /// <field name="transactioncurrencyid" type="Lookup"> DisplayName: Currency
+        /// <para />Description: Choose the local currency for the record to make sure budgets are reported in the correct currency. </field>
+        transactioncurrencyid: {
+            dataType: "Lookup"
+        },
         /// <field name="sharesoutstanding" type="Integer"> DisplayName: Shares Outstanding
         /// <para />Description: Type the number of shares available to the public for the account. This number is used as an indicator in financial performance analysis. </field>
         sharesoutstanding: {
@@ -90,28 +95,8 @@ MK.FSG.Model = function (value) {
         aging30: {
             dataType: "Money"
         },
-        /// <field name="donotbulkpostalmail" type="Boolean"> DisplayName: Do not allow Bulk Mails
-        /// <para />Description: Select whether the account allows bulk postal mail sent through marketing campaigns or quick campaigns. If Do Not Allow is selected, the account can be added to marketing lists, but will be excluded from the postal mail. </field>
-        donotbulkpostalmail: {
-            dataType: "Boolean"
-        },
-        /// <field name="utcconversiontimezonecode" type="Integer"> DisplayName: UTC Conversion Time Zone Code
-        /// <para />Description: Time zone code that was in use when the record was created. </field>
-        utcconversiontimezonecode: {
-            dataType: "Integer"
-        },
-        /// <field name="slainvokedid" type="Lookup"> DisplayName: Last SLA applied
-        /// <para />Description: Last SLA that was applied to this case. This field is for internal use only. </field>
-        slainvokedid: {
-            dataType: "Lookup"
-        },
-        /// <field name="opendeals_date" type="DateTime"> DisplayName: Open Deals(Last Updated Time)
-        /// <para />Description: The date time for Open Deals. </field>
-        opendeals_date: {
-            dataType: "DateTime"
-        },
         /// <field name="originatingleadid" type="Lookup"> DisplayName: Originating Lead
-        /// <para />Description: Shows the lead that the account was created from if the account was created by converting a lead in Microsoft Dynamics CRM. This is used to relate the account to data on the originating lead for use in reporting and analytics. </field>
+        /// <para />Description: Shows the lead that the account was created from if the account was created by converting a lead in Microsoft Dynamics 365. This is used to relate the account to data on the originating lead for use in reporting and analytics. </field>
         originatingleadid: {
             dataType: "Lookup"
         },
@@ -155,11 +140,6 @@ MK.FSG.Model = function (value) {
         numberofemployees: {
             dataType: "Integer"
         },
-        /// <field name="accountclassificationcode" type="Picklist"> DisplayName: Classification
-        /// <para />Description: Select a classification code to indicate the potential value of the customer account based on the projected return on investment, cooperation level, sales cycle length or other criteria. </field>
-        accountclassificationcode: {
-            dataType: "Picklist"
-        },
         /// <field name="revenue" type="Money"> DisplayName: Annual Revenue
         /// <para />Description: Type the annual revenue for the account, used as an indicator in financial performance analysis. </field>
         revenue: {
@@ -174,11 +154,6 @@ MK.FSG.Model = function (value) {
         /// <para />Description: Shows the conversion rate of the record's currency. The exchange rate is used to convert all money fields in the record from the local currency to the system's default currency. </field>
         exchangerate: {
             dataType: "Decimal"
-        },
-        /// <field name="isprivate" type="Boolean"> DisplayName: 
-        /// <para />Description:  </field>
-        isprivate: {
-            dataType: "Boolean"
         },
         /// <field name="primarycontactid" type="Lookup"> DisplayName: Primary Contact
         /// <para />Description: Choose the primary contact for the account to provide quick access to contact details. </field>
@@ -201,14 +176,9 @@ MK.FSG.Model = function (value) {
             dataType: "Status"
         },
         /// <field name="createdon" type="DateTime"> DisplayName: Created On
-        /// <para />Description: Shows the date and time when the record was created. The date and time are displayed in the time zone selected in Microsoft Dynamics CRM options. </field>
+        /// <para />Description: Shows the date and time when the record was created. The date and time are displayed in the time zone selected in Microsoft Dynamics 365 options. </field>
         createdon: {
             dataType: "DateTime"
-        },
-        /// <field name="donotbulkemail" type="Boolean"> DisplayName: Do not allow Bulk Emails
-        /// <para />Description: Select whether the account allows bulk email sent through campaigns. If Do Not Allow is selected, the account can be added to marketing lists, but is excluded from email. </field>
-        donotbulkemail: {
-            dataType: "Boolean"
         },
         /// <field name="donotfax" type="Boolean"> DisplayName: Do not allow Faxes
         /// <para />Description: Select whether the account allows faxes. If Do Not Allow is selected, the account will be excluded from fax activities distributed in marketing campaigns. </field>
@@ -225,25 +195,10 @@ MK.FSG.Model = function (value) {
         ownershipcode: {
             dataType: "Picklist"
         },
-        /// <field name="opendeals_state" type="Integer"> DisplayName: Open Deals(State)
-        /// <para />Description: State of Open Deals. </field>
-        opendeals_state: {
-            dataType: "Integer"
-        },
-        /// <field name="owningbusinessunit" type="Lookup"> DisplayName: Owning Business Unit
-        /// <para />Description: Shows the business unit that the record owner belongs to. </field>
-        owningbusinessunit: {
-            dataType: "Lookup"
-        },
         /// <field name="lastusedincampaign" type="DateTime"> DisplayName: Last Date Included in Campaign
         /// <para />Description: Shows the date when the account was last included in a marketing campaign or quick campaign. </field>
         lastusedincampaign: {
             dataType: "DateTime"
-        },
-        /// <field name="processid" type="Uniqueidentifier"> DisplayName: Process
-        /// <para />Description: Shows the ID of the process. </field>
-        processid: {
-            dataType: "Uniqueidentifier"
         },
         /// <field name="description" type="Memo"> DisplayName: Description
         /// <para />Description: Type additional information to describe the account, such as an excerpt from the company's website. </field>
@@ -255,39 +210,19 @@ MK.FSG.Model = function (value) {
         modifiedby: {
             dataType: "Lookup"
         },
-        /// <field name="timezoneruleversionnumber" type="Integer"> DisplayName: Time Zone Rule Version Number
-        /// <para />Description: For internal use only. </field>
-        timezoneruleversionnumber: {
-            dataType: "Integer"
-        },
         /// <field name="modifiedonbehalfby" type="Lookup"> DisplayName: Modified By (Delegate)
         /// <para />Description: Shows who created the record on behalf of another user. </field>
         modifiedonbehalfby: {
             dataType: "Lookup"
         },
         /// <field name="donotemail" type="Boolean"> DisplayName: Do not allow Emails
-        /// <para />Description: Select whether the account allows direct email sent from Microsoft Dynamics CRM. </field>
+        /// <para />Description: Select whether the account allows direct email sent from Microsoft Dynamics 365. </field>
         donotemail: {
             dataType: "Boolean"
-        },
-        /// <field name="territorycode" type="Picklist"> DisplayName: Territory Code
-        /// <para />Description: Select a region or territory for the account for use in segmentation and analysis. </field>
-        territorycode: {
-            dataType: "Picklist"
         },
         /// <field name="aging60" type="Money"> DisplayName: Aging 60
         /// <para />Description: For system use only. </field>
         aging60: {
-            dataType: "Money"
-        },
-        /// <field name="traversedpath" type="String"> DisplayName: Traversed Path
-        /// <para />Description: For internal use only. </field>
-        traversedpath: {
-            dataType: "String"
-        },
-        /// <field name="creditlimit_base" type="Money"> DisplayName: Credit Limit (Base)
-        /// <para />Description: Shows the credit limit converted to the system's default base currency for reporting purposes. </field>
-        creditlimit_base: {
             dataType: "Money"
         },
         /// <field name="yominame" type="String"> DisplayName: Yomi Account Name
@@ -300,11 +235,6 @@ MK.FSG.Model = function (value) {
         industrycode: {
             dataType: "Picklist"
         },
-        /// <field name="openrevenue_state" type="Integer"> DisplayName: Open Revenue(State)
-        /// <para />Description: State of Open Revenue. </field>
-        openrevenue_state: {
-            dataType: "Integer"
-        },
         /// <field name="primarysatoriid" type="String"> DisplayName: Primary Satori ID
         /// <para />Description: Primary Satori ID for Account </field>
         primarysatoriid: {
@@ -315,20 +245,10 @@ MK.FSG.Model = function (value) {
         name: {
             dataType: "String"
         },
-        /// <field name="entityimageid" type="Uniqueidentifier"> DisplayName: Entity Image Id
-        /// <para />Description: For internal use only. </field>
-        entityimageid: {
-            dataType: "Uniqueidentifier"
-        },
         /// <field name="donotphone" type="Boolean"> DisplayName: Do not allow Phone Calls
         /// <para />Description: Select whether the account allows phone calls. If Do Not Allow is selected, the account will be excluded from phone call activities distributed in marketing campaigns. </field>
         donotphone: {
             dataType: "Boolean"
-        },
-        /// <field name="businesstypecode" type="Picklist"> DisplayName: Business Type
-        /// <para />Description: Select the legal designation or other business type of the account for contracts or reporting purposes. </field>
-        businesstypecode: {
-            dataType: "Picklist"
         },
         /// <field name="primarytwitterid" type="String"> DisplayName: Primary Twitter ID
         /// <para />Description: Primary Twitter ID for Account </field>
@@ -340,15 +260,15 @@ MK.FSG.Model = function (value) {
         createdbyexternalparty: {
             dataType: "Lookup"
         },
-        /// <field name="shippingmethodcode" type="Picklist"> DisplayName: Shipping Method
-        /// <para />Description: Select a shipping method for deliveries sent to the account's address to designate the preferred carrier or other delivery option. </field>
-        shippingmethodcode: {
-            dataType: "Picklist"
-        },
         /// <field name="paymenttermscode" type="Picklist"> DisplayName: Payment Terms
         /// <para />Description: Select the payment terms to indicate when the customer needs to pay the total amount. </field>
         paymenttermscode: {
             dataType: "Picklist"
+        },
+        /// <field name="marketingonly" type="Boolean"> DisplayName: Marketing Only
+        /// <para />Description: Whether is only for marketing </field>
+        marketingonly: {
+            dataType: "Boolean"
         },
         /// <field name="preferredequipmentid" type="Lookup"> DisplayName: Preferred Facility/Equipment
         /// <para />Description: Choose the account's preferred service facility or equipment to make sure services are scheduled correctly for the customer. </field>
@@ -360,25 +280,10 @@ MK.FSG.Model = function (value) {
         createdonbehalfby: {
             dataType: "Lookup"
         },
-        /// <field name="transactioncurrencyid" type="Lookup"> DisplayName: Currency
-        /// <para />Description: Choose the local currency for the record to make sure budgets are reported in the correct currency. </field>
-        transactioncurrencyid: {
-            dataType: "Lookup"
-        },
-        /// <field name="accountratingcode" type="Picklist"> DisplayName: Account Rating
-        /// <para />Description: Select a rating to indicate the value of the customer account. </field>
-        accountratingcode: {
-            dataType: "Picklist"
-        },
         /// <field name="fax" type="String"> DisplayName: Fax
         /// <para />Description: Type the fax number for the account. </field>
         fax: {
             dataType: "String"
-        },
-        /// <field name="masterid" type="Lookup"> DisplayName: Master ID
-        /// <para />Description: Shows the master account that the account was merged with. </field>
-        masterid: {
-            dataType: "Lookup"
         },
         /// <field name="sic" type="String"> DisplayName: SIC Code
         /// <para />Description: Type the Standard Industrial Classification (SIC) code that indicates the account's primary industry of business, for use in marketing segmentation and demographic analysis. </field>
@@ -390,30 +295,20 @@ MK.FSG.Model = function (value) {
         ownerid: {
             dataType: "Owner"
         },
-        /// <field name="stageid" type="Uniqueidentifier"> DisplayName: Process Stage
-        /// <para />Description: Shows the ID of the stage. </field>
-        stageid: {
-            dataType: "Uniqueidentifier"
-        },
         /// <field name="accountnumber" type="String"> DisplayName: Account Number
         /// <para />Description: Type an ID number or code for the account to quickly search and identify the account in system views. </field>
         accountnumber: {
             dataType: "String"
         },
+        /// <field name="creditlimit_base" type="Money"> DisplayName: Credit Limit (Base)
+        /// <para />Description: Shows the credit limit converted to the system's default base currency for reporting purposes. </field>
+        creditlimit_base: {
+            dataType: "Money"
+        },
         /// <field name="revenue_base" type="Money"> DisplayName: Annual Revenue (Base)
         /// <para />Description: Shows the annual revenue converted to the system's default base currency. The calculations use the exchange rate specified in the Currencies area. </field>
         revenue_base: {
             dataType: "Money"
-        },
-        /// <field name="merged" type="Boolean"> DisplayName: Merged
-        /// <para />Description: Shows whether the account has been merged with another account. </field>
-        merged: {
-            dataType: "Boolean"
-        },
-        /// <field name="owneridtype" type="EntityName"> DisplayName: 
-        /// <para />Description:  </field>
-        owneridtype: {
-            dataType: "EntityName"
         },
         /// <field name="modifiedbyexternalparty" type="Lookup"> DisplayName: Modified By (External Party)
         /// <para />Description: Shows the external party who modified the record. </field>
@@ -445,10 +340,10 @@ MK.FSG.Model = function (value) {
         createdby: {
             dataType: "Lookup"
         },
-        /// <field name="openrevenue_date" type="DateTime"> DisplayName: Open Revenue(Last Updated Time)
-        /// <para />Description: The date time for Open Revenue. </field>
-        openrevenue_date: {
-            dataType: "DateTime"
+        /// <field name="followemail" type="Boolean"> DisplayName: Follow Email Activity
+        /// <para />Description: Information about whether to allow following email activity like opens, attachment views and link clicks for emails sent to the account. </field>
+        followemail: {
+            dataType: "Boolean"
         },
         /// <field name="marketcap_base" type="Money"> DisplayName: Market Capitalization (Base)
         /// <para />Description: Shows the market capitalization converted to the system's default base currency. </field>
@@ -459,16 +354,6 @@ MK.FSG.Model = function (value) {
         /// <para />Description: Type the stock exchange symbol for the account to track financial performance of the company. You can click the code entered in this field to access the latest trading information from MSN Money. </field>
         tickersymbol: {
             dataType: "String"
-        },
-        /// <field name="customersizecode" type="Picklist"> DisplayName: Customer Size
-        /// <para />Description: Select the size category or range of the account for segmentation and reporting purposes. </field>
-        customersizecode: {
-            dataType: "Picklist"
-        },
-        /// <field name="participatesinworkflow" type="Boolean"> DisplayName: Participates in Workflow
-        /// <para />Description: For system use only. Legacy Microsoft Dynamics CRM 3.0 workflow data. </field>
-        participatesinworkflow: {
-            dataType: "Boolean"
         },
         /// <field name="stockexchange" type="String"> DisplayName: Stock Exchange
         /// <para />Description: Type the stock exchange at which the account is listed to track their stock and financial performance of the company. </field>
@@ -494,11 +379,6 @@ MK.FSG.Model = function (value) {
         /// <para />Description: Type a second phone number for this account. </field>
         telephone2: {
             dataType: "String"
-        },
-        /// <field name="versionnumber" type="BigInt"> DisplayName: Version Number
-        /// <para />Description: Version number of the account. </field>
-        versionnumber: {
-            dataType: "BigInt"
         },
         /// <field name="preferredsystemuserid" type="Lookup"> DisplayName: Preferred User
         /// <para />Description: Choose the preferred service representative for reference when you schedule service activities for the account. </field>
@@ -537,6 +417,40 @@ MK.FSG.Model = function (value) {
         },
     }
 
+    accountModel.tab = {
+        /// <field name="SUMMARY_TAB"> Label: Summary</field>
+        SUMMARY_TAB: {},
+        /// <field name="DETAILS_TAB"> Label: Details</field>
+        DETAILS_TAB: {},
+    }
+
+    accountModel.section = {
+        /// <field name="ACCOUNT_INFORMATION" > Label: ACCOUNT INFORMATION</field> 
+        ACCOUNT_INFORMATION: {},
+        /// <field name="ADDRESS" > Label: ADDRESS</field> 
+        ADDRESS: {},
+        /// <field name="MapSection" > Label: </field> 
+        MapSection: {},
+        /// <field name="COMPANY_PROFILE" > Label: COMPANY PROFILE</field> 
+        COMPANY_PROFILE: {},
+        /// <field name="DETAILS_TAB_section_6" > Label: Description</field> 
+        DETAILS_TAB_section_6: {},
+        /// <field name="MARKETING" > Label: MARKETING</field> 
+        MARKETING: {},
+        /// <field name="CONTACT_PREFERENCES" > Label: CONTACT PREFERENCES</field> 
+        CONTACT_PREFERENCES: {},
+        /// <field name="BILLING" > Label: BILLING</field> 
+        BILLING: {},
+        /// <field name="SHIPPING" > Label: SHIPPING</field> 
+        SHIPPING: {},
+        /// <field name="ChildAccounts" > Label: CHILD ACCOUNTS</field> 
+        ChildAccounts: {},
+    }
+
+    accountModel.header = {
+        revenue: undefined.fieldrevenue,
+    }
+
     var dataType = {};
     for (var key in accountModel.field) {
         dataType = accountModel.field[key].dataType;
@@ -545,12 +459,19 @@ MK.FSG.Model = function (value) {
     }
 
 
+    dataType = {};
+    for (var key in accountModel.header) {
+        dataType = accountModel.header[key].dataType;
+        accountModel.header[key] = {};
+        MK.FSG.Main.FieldProperties(accountModel.header[key], "header_" + key, dataType);
+    }
+
+
     return accountModel;
 }
 
 
 if (MK.FSG.Main && !MK.FSGEntity) {
-    alert("Model Load");
     MK.FSGEntity = new MK.FSG.Model();
 }
 var currentDate = new Date(); console.log("MK.FSG.Model successfully loaded on " + currentDate.toLocaleDateString() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + ":" + currentDate.getMilliseconds())

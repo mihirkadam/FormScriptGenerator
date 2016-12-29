@@ -121,9 +121,6 @@ MK.FSG.Main = (function () {
         }
         throw new Error(errorMessages.xrm_page_not_found);
     }());
-
-
-
     var entityProperties = function (fieldReference) {
         /// <summary>
         ///  This function consist of all methods required for entity property.
@@ -211,7 +208,6 @@ MK.FSG.Main = (function () {
         });
         return _fieldReference;
     }
-
     var contextProperties = function (fieldReference) {
         /// <summary>
         /// 
@@ -430,8 +426,6 @@ MK.FSG.Main = (function () {
         return _fieldReference;
 
     };
-
-
     var xrmProperties = (function () {
 
         var getAttribute = function (fieldName) {
@@ -466,8 +460,6 @@ MK.FSG.Main = (function () {
             getUI: getUI
         };
     }());
-
-
     var fieldProperties = function (fieldReference, fieldName, fieldType, isTypeControl) {
         ///<field name="attribute" type="Object" static="false">Get the attribute that the control is bound to.</field>
         ///<field name="value" type="Any" static="false">Gets or sets the data value for an attribute.</field>
@@ -1650,7 +1642,6 @@ MK.FSG.Main = (function () {
         }
 
     };
-
     var formProperties = function (fieldReference) {
 
         "use strict";
@@ -1798,7 +1789,6 @@ MK.FSG.Main = (function () {
             get: formProperties.prototype.getCurrentControl
         });
     };
-
     var subGridProperties = function () {
 
     }
@@ -1807,7 +1797,6 @@ MK.FSG.Main = (function () {
     }
     var defaultSettings = {
         strictRule: true,
-
     };
     //{0} represents property name , {1} represents field-name , {2} represents data-type 
     var errorMessages = {
@@ -1819,11 +1808,9 @@ MK.FSG.Main = (function () {
         property_not_support_for_tablets: "Property '{0}' does not support for phone or tablet device.",
         property_not_support_for_phones_or_tablets: "Property '{0}' does not support for phone or tablet device."
     }
-
     var isMobileClient = (function () {
         return (XrmPage.context.client.getClient() == "Mobile");
     })();
-
     var formFactor = (function () {
         "use strict";
         var formFactor = XrmPage.context.client.getFormFactor();
@@ -1851,7 +1838,6 @@ MK.FSG.Main = (function () {
         }
         return formFactorType;
     })();
-
     var userSettings = function (value) {
         /// <summary>
         /// 
@@ -1927,7 +1913,6 @@ MK.FSG.Main = (function () {
         }
 
     };
-
     var validation = {
         isString: function (value) {
             /// <summary>
