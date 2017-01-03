@@ -148,6 +148,7 @@ var ExampleFSG = {
         MK.FSGEntity.field.createdon.showTime = false;
 
 
+
         //remove on key press
         //  MK.FSGEntity.field.name.removeOnKeyPress = ExampleFSG.autoComplete;
 

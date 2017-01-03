@@ -180,7 +180,7 @@ var modelGeneration = {
                 if (headerNames.indexOf(cell["_datafieldname"]) > -1) {
                     continue;
                 }
-                modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData.field + '.field' + [cell["control"]["_datafieldname"]] + ',\n';
+                modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData+'.field.' + [cell["control"]["_datafieldname"]] + ',\n';
                 headerNames.push(cell["_datafieldname"]);
             }
         }
@@ -188,15 +188,15 @@ var modelGeneration = {
 
         modelFile += '    var dataType={};\n';
         modelFile += '    for (var key in ' + tempData + '.field) {\n';
-        modelFile += '   dataType=' + tempData + '.field[key].dataType ;\n';
-        modelFile += '   ' + tempData + '.field[key] = {};\n';
+        modelFile += '        dataType=' + tempData + '.field[key].dataType ;\n';
+        modelFile += '        ' + tempData + '.field[key] = {};\n';
         modelFile += '         MK.FSG.Main.FieldProperties(' + tempData + '.field[key],key, dataType);\n';
         modelFile += '      }\n\n\n';
 
         modelFile += '    dataType={};\n';
         modelFile += '    for (var key in ' + tempData + '.header) {\n';
-        modelFile += '   dataType=' + tempData + '.header[key].dataType ;\n';
-        modelFile += '   ' + tempData + '.header[key] = {};\n';
+        modelFile += '        dataType=' + tempData + '.header[key].dataType ;\n';
+        modelFile += '        ' + tempData + '.header[key] = {};\n';
         modelFile += '         MK.FSG.Main.FieldProperties(' + tempData + '.header[key],' + '"header_"+' + 'key, dataType);\n';
         modelFile += '      }\n\n\n';
 
