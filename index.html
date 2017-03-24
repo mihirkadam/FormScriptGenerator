@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Form Script Generator by mihirkadam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,185 +8,184 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
+</head>
+<body>
     <section class="page-header">
-      <h1 class="project-name">Form Script Generator</h1>
-      <h2 class="project-tagline">Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense</h2>
-      <a href="https://github.com/mihirkadam/Form-Script-Generator" class="btn">View on GitHub</a>
-      <a href="https://github.com/mihirkadam/Form-Script-Generator/raw/master/Form%20Script%20Generator/Form%20Script%20Generator/Solutions/FormScriptGenerator_managed_latest.zip" class="btn">Download Managed Solution</a>
-
+        <h1 class="project-name">Form Script Generator</h1>
+        <h2 class="project-tagline">Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense</h2>
+        <a href="https://github.com/mihirkadam/Form-Script-Generator" class="btn">View on GitHub</a>
+        <a href="https://github.com/mihirkadam/Form-Script-Generator/raw/master/Form%20Script%20Generator/Form%20Script%20Generator/Solutions/FormScriptGenerator_managed_latest.zip" class="btn">Download Managed Solution</a>
     </section>
-
     <section class="main-content">
-      <h1>
-<a id="form-script-generator-for-dynamics-crm-2016-update-1-and-above" class="anchor" href="#form-script-generator-for-dynamics-crm-2016-update-1-and-above" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Form Script Generator for Dynamics CRM 2016 update 1 and above.</h1>
-
-<p><a href="https://ghit.me/repo/mihirkadam/Form-Script-Generator"><img src="https://ghit.me/badge.svg?repo=mihirkadam/Form-Script-Generator" alt="ghit.me"></a></p>
-
-<blockquote>
-<p>Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense. <g-emoji alias="sparkles" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" ios-version="6.0">✨</g-emoji> <g-emoji alias="boom" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4a5.png" ios-version="6.0">💥</g-emoji></p>
-</blockquote>
-
-<h2>
-<a id="the-library-is-designed-for" class="anchor" href="#the-library-is-designed-for" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Library is designed for</h2>
-
-<ul>
-<li>An easy and faster way to write Form Scripts for Dynamics CRM.</li>
-<li>Visual Studio IntelliSense for Dynamics CRM functions.</li>
-<li>Field validations.</li>
+        <h1>
+            <a id="form-script-generator-for-dynamics-crm-2016-update-1-and-above" class="anchor" href="#form-script-generator-for-dynamics-crm-2016-update-1-and-above" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Form Script Generator for Dynamics CRM 2016 update 1 and above.
+        </h1>
+        <p><a href="https://ghit.me/repo/mihirkadam/Form-Script-Generator"><img src="https://ghit.me/badge.svg?repo=mihirkadam/Form-Script-Generator" alt="ghit.me"></a></p>
+        <blockquote>
+            <p>Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense. <g-emoji alias="sparkles" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2728.png" ios-version="6.0">✨</g-emoji> <g-emoji alias="boom" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4a5.png" ios-version="6.0">💥</g-emoji></p>
+        </blockquote>
+        <h2>
+            <a id="the-library-is-designed-for" class="anchor" href="#the-library-is-designed-for" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Library is designed for
+        </h2>
+        <ul>
+            <li>An easy and faster way to write Form Scripts for Dynamics CRM.</li>
+            <li>Visual Studio IntelliSense for Dynamics CRM functions.</li>
+            <li>Field validations.</li>
+        </ul>
+        <h3>
+            <a id="following-are-some-screen-capture" class="anchor" href="#following-are-some-screen-capture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Following are some screen capture
+        </h3>
+        <p>
+            <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">
+            <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">
+            <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-2.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">
+        </p>
+        <h3>
+            <a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example:
+        </h3>
+        <div class="highlight highlight-source-js">
+            <pre>        <span class="pl-c">///set value to name field</span>
+            <span class="pl-c1">MK</span>.<span class="pl-smi">FSGEntity</span>.<span class="pl-smi">field</span>.<span class="pl-c1">name</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Form Script Generator Example<span class="pl-pds">"</span></span>;
+            <span class="pl-c">//get value from name field</span>
+            <span class="pl-k">var</span> nameValue <span class="pl-k">=</span> <span class="pl-c1">MK</span>.<span class="pl-smi">FSGEntity</span>.<span class="pl-smi">field</span>.<span class="pl-c1">name</span>.<span class="pl-c1">value</span>; </pre>
+        </div>
+        <h3>
+            <a id="some-interesting-features" class="anchor" href="#some-interesting-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some interesting features
+        </h3>
+        <ul>
+            <li>No need to remember the logical name of the field.</li>
+            <li>Field properties will be filtered by data type.</li>
+            <li>Auto field validation if selected field is not present the form.</li>
+            <li>Access tab and section present of the form.</li>
 </ul>
-
-<h3>
-<a id="following-are-some-screen-capture" class="anchor" href="#following-are-some-screen-capture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Following are some screen capture</h3>
-
-<p><img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-2.png?raw=true" alt="Alt text" title="Visual Studio IntelliSense">      
-      </p>
-
-<h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example:</h3>
-
-<div class="highlight highlight-source-js"><pre>        <span class="pl-c">///set value to name field</span>
-        <span class="pl-c1">MK</span>.<span class="pl-smi">FSGEntity</span>.<span class="pl-smi">field</span>.<span class="pl-c1">name</span>.<span class="pl-c1">value</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Form Script Generator Example<span class="pl-pds">"</span></span>;
-
-        <span class="pl-c">//get value from name field</span>
-        <span class="pl-k">var</span> nameValue <span class="pl-k">=</span> <span class="pl-c1">MK</span>.<span class="pl-smi">FSGEntity</span>.<span class="pl-smi">field</span>.<span class="pl-c1">name</span>.<span class="pl-c1">value</span>; </pre></div>
-
-<h3>
-<a id="some-interesting-features" class="anchor" href="#some-interesting-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some interesting features</h3>
-
-<ul>
-<li>No need to remember the logical name of the field.</li>
-<li>Field properties will be filtered by data type.</li>
-<li>Auto field validation if selected field is not present the form.</li>
-</ul>
-
-<h2>
-<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get started</h2>
-
-<p>The wiki has a great section on how to get started</p>
-
-<ul>
-<li>Documentation: Github wiki</li>
-<li>Feedback: Open an issue</li>
-</ul>
-
-<h2>
-<a id="compatibility-matrix" class="anchor" href="#compatibility-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility Matrix</h2>
-
-<h3>
-<a id="crm-online" class="anchor" href="#crm-online" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CRM Online</h3>
-
-<table>
-<thead>
-<tr>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px"><br>2016 Update 1</th>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="Dynamics 365" width="16px" height="16px"><br>Dynamics 365</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v8.1</td>
-<td>v8.2</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="browsers" class="anchor" href="#browsers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browsers</h3>
-
-<table>
-<thead>
-<tr>
-<th>
-<a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png?" alt="Edge" width="16px" height="16px"></a><br>Edge</th>
-<th>
-<a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px"></a><br>Firefox</th>
-<th>
-<a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px"></a><br>Chrome</th>
-<th>
-<a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px"></a><br>Safari</th>
-<th>
-<a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/opera.png" alt="Opera" width="16px" height="16px"></a><br>Opera</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v38.0</td>
-<td>v49.0</td>
-<td>v54.0</td>
-<td>v5.1</td>
-<td>v41.0</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="phones" class="anchor" href="#phones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phones</h3>
-
-<table>
-<thead>
-<tr>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px"><br>Android</th>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px"><br>iOS</th>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px"><br>Windows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v6</td>
-<td>v10</td>
-<td>v10</td>
-</tr>
-</tbody>
-</table>
-
-<h3>
-<a id="tablets" class="anchor" href="#tablets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tablets</h3>
-
-<table>
-<thead>
-<tr>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px"><br>Android</th>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px"><br>iOS</th>
-<th>
-<img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px"><br>Windows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v6</td>
-<td>v10</td>
-<td>v10</td>
-</tr>
-</tbody>
-</table>
-
-<h2>
-<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
-
-<p>Following are SDK functions are supported by latest release </p>
-
-<h3>
-<a id="version-10" class="anchor" href="#version-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version: 1.0</h3>
-
-<ul>
-<li>
-<p>Date: 1 Nov, 2016</p>
-
-<ul>
-<li>
-  <p> <a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Field-Properties">Field Properties</a></p>
-
+        <h2>
+            <a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get started
+        </h2>
+        <p>The wiki has a great section on how to get started</p>
+        <ul>
+            <li>Documentation:<a href="https://github.com/mihirkadam/FormScriptGenerator/wiki"> Github wiki</a></li>
+            <li>Feedback: <a href="http://feathub.com/mihirkadam/Form-Script-Generator">Open an issue</a></li>
+        </ul>
+        <h2>
+            <a id="compatibility-matrix" class="anchor" href="#compatibility-matrix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compatibility Matrix
+        </h2>
+        <h3>
+            <a id="crm-online" class="anchor" href="#crm-online" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CRM Online
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px"><br>2016 Update 1
+                    </th>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="Dynamics 365" width="16px" height="16px"><br>Dynamics 365
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v8.1</td>
+                    <td>v8.2</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>
+            <a id="browsers" class="anchor" href="#browsers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browsers
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png?" alt="Edge" width="16px" height="16px"></a><br>Edge
+                    </th>
+                    <th>
+                        <a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px"></a><br>Firefox
+                    </th>
+                    <th>
+                        <a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px"></a><br>Chrome
+                    </th>
+                    <th>
+                        <a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px"></a><br>Safari
+                    </th>
+                    <th>
+                        <a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/opera.png" alt="Opera" width="16px" height="16px"></a><br>Opera
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v38.0</td>
+                    <td>v49.0</td>
+                    <td>v54.0</td>
+                    <td>v5.1</td>
+                    <td>v41.0</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>
+            <a id="phones" class="anchor" href="#phones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phones
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px"><br>Android
+                    </th>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px"><br>iOS
+                    </th>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px"><br>Windows
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v6</td>
+                    <td>v10</td>
+                    <td>v10</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>
+            <a id="tablets" class="anchor" href="#tablets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tablets
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px"><br>Android
+                    </th>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px"><br>iOS
+                    </th>
+                    <th>
+                        <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px"><br>Windows
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v6</td>
+                    <td>v10</td>
+                    <td>v10</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>
+            <a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features
+        </h2>
+        <p>Following are SDK functions are supported by latest release </p>
+        <h3>
+            <a id="version-10" class="anchor" href="#version-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version: 1.0
+        </h3>
+        <ul>
+            <li>
+                <p>Date: 1 Nov, 2016</p>
+                <ul>
+                    <li>
+                        <p> <a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Field-Properties">Field Properties</a></p>
 <pre><code>           1. setValue 
            2. getValue 
            3. getAttributeType 
@@ -232,10 +231,9 @@
            43. hideAutoComplete
            44. getAttribute
 </code></pre>
-</li>
-<li>
-<p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Form-Properties">Form Properties</a></p>
-
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Form-Properties">Form Properties</a></p>
 <pre><code>           1. close
            2. getFormType
            3. clearFormNotification
@@ -245,10 +243,9 @@
            7. refreshRibbon
            8. getCurrentControl
 </code></pre>
-</li>
-<li>
-<p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Entity-Properties">Entity Properties</a></p>
-
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Entity-Properties">Entity Properties</a></p>
 <pre><code>           1. getEntityName
            2. getId
            3. getIsDirty
@@ -256,10 +253,9 @@
            5. getDataXml
            6. getPrimaryAttributeValue
 </code></pre>
-</li>
-<li>
-<p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Context-Properties">Context Properties</a></p>
-
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Context-Properties">Context Properties</a></p>
 <pre><code>           1. getClientUrl
            2. getUserId
            3. getUserName
@@ -274,56 +270,68 @@
            12. getQueryStringParameters
            13. getTimeZoneOffsetMinutes
 </code></pre>
-</li>
-</ul>
-</li>
-</ul>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Tab-Properties">Tab Properties</a></p>
+<pre><code>           1. getDisplayState
+           2. setDisplayState
+           3. getLabel
+           4. setLabel
+           5. setFocus
+           6. getVisible
+           7. setVisible
+           8. getParent
+           9. getName
+</code></pre>
+                    </li>
+                    <li>
+                        <p><a href="https://github.com/mihirkadam/FormScriptGenerator/wiki/Section-Properties">Section Properties</a></p>
+<pre><code>           1. getLabel
+           2. setLabel
+           3. getVisible
+           4. setVisible
+           5. getParent
+           6. getName
+</code></pre>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2>
+            <a id="whats-coming-in-next-release" class="anchor" href="#whats-coming-in-next-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What’s coming in Next Release
+        </h2>
+        <ol>
+            <li>Utility functions from Dynamics CRM SDK.</li>
+            <li>Access business process fields.</li>
+        </ol>
+        <h2>
+            <a id="planned-features" class="anchor" href="#planned-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Planned Features
+        </h2>
+        <ol>
+            
+            <li>Access grid , web resources and iFrame. </li>
+        </ol>
+        <h2>
+            <a id="feature-request" class="anchor" href="#feature-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature Request
+        </h2>
+        <p>Take charge and <a href="http://feathub.com/mihirkadam/Form-Script-Generator">add your idea</a> or <a href="http://feathub.com/mihirkadam/Form-Script-Generator">vote on your favorite feature</a> to be implemented:</p>
+        <h2>
+            <a id="minimum-software-requirement" class="anchor" href="#minimum-software-requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minimum Software Requirement
+        </h2>
+        <ul>
+            <li>Visual Studio 2013 or above.</li>
+        </ul>
+        <h2>
+            <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License
+        </h2>
+        <p>MIT - see <a href="LICENSE"> MIT licence information</a></p>
 
-<h2>
-<a id="whats-coming-in-next-release" class="anchor" href="#whats-coming-in-next-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What’s coming in Next Release</h2>
 
-<ol>
-<li>Utility functions from Dynamics CRM SDK.</li>
-<li>Access business process fields.</li>
-</ol>
+        <footer class="site-footer">
+            <span class="site-footer-owner">© 2016,<a href="https://github.com/mihirkadam/Form-Script-Generator">Form Script Generator</a> is maintained by <a href="https://github.com/mihirkadam">Mihir Kadam (<a href="mailto:mihirkadam16@gmail.com">mihirkadam16@gmail.com</a>)</a>.</span>
 
-<h2>
-<a id="planned-features" class="anchor" href="#planned-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Planned Features</h2>
-
-<ol>
-<li>Access tab and section present of the form.</li>
-<li>Access grid , web resources and iFrame. </li>
-</ol>
-
-<h2>
-<a id="feature-request" class="anchor" href="#feature-request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature Request</h2>
-
-<p>Take charge and <a href="http://feathub.com/mihirkadam/Form-Script-Generator">add your idea</a> or <a href="http://feathub.com/mihirkadam/Form-Script-Generator">vote on your favorite feature</a> to be implemented:</p>
-
-<h2>
-<a id="minimum-software-requirement" class="anchor" href="#minimum-software-requirement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minimum Software Requirement</h2>
-
-<ul>
-<li>Visual Studio 2013 or above.</li>
-</ul>
-
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
-
-<p>MIT - see <a href="LICENSE"> MIT licence information</a></p>
-
-
-
-
-
-      <footer class="site-footer">
-        <span class="site-footer-owner">© 2016,<a href="https://github.com/mihirkadam/Form-Script-Generator">Form Script Generator</a> is maintained by <a href="https://github.com/mihirkadam">Mihir Kadam (<a href="mailto:mihirkadam16@gmail.com">mihirkadam16@gmail.com</a>)</a>.</span>
-
-
-      </footer>
-
+        </footer>
     </section>
 
-  
-  </body>
+</body>
 </html>
