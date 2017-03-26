@@ -81,15 +81,16 @@ BL.MG = function () {
         "use strict";
 
         var objectTypeCode = modelGeneration.data.attributeMetadata.ObjectTypeCode;
-        var fetchXml="<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false' >"+
-                      "<entity name='systemform' >"+
-                        "<attribute name='formxml' />"+
-                        "<filter type='and' >"+
-                          "<condition attribute='formactivationstate' operator='eq' value='1' />"+
-                          "<condition attribute='type' operator='eq' value='2' />"+
+        var fetchXml = "<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false' >" +
+                      "<entity name='systemform' >" +
+                        "<attribute name='formxml' />" +
+                        "<attribute name='name' />" +
+                        "<filter type='and' >" +
+                          "<condition attribute='formactivationstate' operator='eq' value='1' />" +
+                          "<condition attribute='type' operator='eq' value='2' />" +
                           "<condition attribute='objecttypecode' operator='eq' value='" + objectTypeCode + "' />" +
-                        "</filter>"+
-                      "</entity>"+
+                        "</filter>" +
+                      "</entity>" +
                     "</fetch>";
 
         MK.WebAPI.Retrieve("systemforms", null, fetchXml, null, fetchFormMetadataCallBack, errorHandler, null, null, null, true);

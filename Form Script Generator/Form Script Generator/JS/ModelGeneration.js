@@ -13,7 +13,7 @@
 * Date: 31 July, 2016
 *
 * Special Thanks:
-*   Somesh Siripuram (Sr.Developer at CloudFronts)
+*   Somesh Siripuram 
 * Date: July, 2016
 
 * What's new:
@@ -35,7 +35,7 @@ $(function () {
 
 
 var modelGeneration = {
-    data: { entityName: "", fileName: "", attributeMetadata: [], formMetadata: [] },
+    data: { entityName: "", fileName: "", attributeMetadata: [], formMetadata: [], fileBlob: [] },
     BindData: function (data) {
         /// <summary>
         /// Bind all data to HTML
@@ -66,10 +66,11 @@ var modelGeneration = {
 
 
         $("div.container .section").on("change", "#entityId", function () {
-            $(".msgloading").show();
-            modelGeneration.data.entityName = $(this).find("option:selected").text();
-            BL.MG.FetchAttributeMetadata($(this).val(), modelGeneration.createModelFile, modelGeneration.errorHandler);
-
+            if ($(this).val() !== "0") {
+                $(".msgloading").show();
+                modelGeneration.data.entityName = $(this).find("option:selected").text();
+                BL.MG.FetchAttributeMetadata($(this).val(), modelGeneration.createModelFile, modelGeneration.errorHandler);
+            }
         })
     },
 
@@ -127,46 +128,84 @@ var modelGeneration = {
         var x2js = new X2JS();
         var forms = modelGeneration.data.formMetadata;
         var formJSON = [];
-        modelFile += '    ' + tempData + '.tab = {\n';
+
+        var tabArray = []
+
+
+
         for (var fcnt = 0; fcnt < forms.length; fcnt++) {
-            formJSON.push(x2js.xml_str2json(forms[fcnt]["formxml"]).form);
-            for (var tcount = 0; tcount < formJSON[fcnt].tabs.tab.length; tcount++) {
-                var tab = formJSON[fcnt].tabs.tab[tcount];
-                if (tabNames.indexOf(tab["_name"]) > -1) {
-                    continue;
-                }
-                modelFile += '        /// <field name="' + tab["_name"] + '"> Label: ' + tab["labels"]["label"]["_description"] + '</field>\n ';
-                modelFile += '        ' + tab["_name"] + ':{ },\n';
-                tabNames.push(tab["_name"])
-            }
+            formJSON.push({ form: x2js.xml_str2json(forms[fcnt]["formxml"]).form, name: forms[fcnt]["name"] });
         }
-        modelFile += '      }\n\n'
+
 
 
         //sections
         var sectionNames = [];
-        modelFile += '    ' + tempData + '.section = {\n';
+        var tabObject = {};
+        var sectionObject = {};
+
         //loop for forms
         for (var fcnt = 0; fcnt < formJSON.length; fcnt++) {
             //loop for tabs
-            for (var tcount = 0; tcount < formJSON[fcnt].tabs.tab.length; tcount++) {
-                var tab = formJSON[fcnt].tabs.tab[tcount];
+            for (var tcount = 0; tcount < formJSON[fcnt].form.tabs.tab.length; tcount++) {
+                var tab = formJSON[fcnt].form.tabs.tab[tcount];
+                var tabIndex = tabNames.indexOf(tab["_name"]);
+                if (tabIndex > -1) {
+                    tabObject = tabArray[tabIndex];
+                    tabObject.form.push(formJSON[fcnt].name);
+                }
+                else {
+                    tabObject = modelGeneration.getTabObject();
+                    tabObject.description = tab["labels"]["label"]["_description"];
+                    tabObject.forms.push(formJSON[fcnt].name);
+                    tabObject.tabName = tab["_name"];
+                }
+
+
                 //loop for multiple columns
                 for (var columncount = 0; columncount < tab["columns"]["column"].length; columncount++) {
                     var column = tab["columns"]["column"][columncount];
                     //loop for section
                     for (var scount = 0; scount < column["sections"]["section"].length; scount++) {
-                  
+
                         var section = column["sections"]["section"][scount];
-                        if (sectionNames.indexOf(section["_name"]) > -1) {
-                            continue;
+                        var sectionIndex = tabObject.section.contains(section["_name"], "sectionName");
+                        if (MK.Validation.isNumber(sectionIndex)) {
+                            tabObject.section[sectionIndex].forms.push(formJSON[fcnt].name);
                         }
-                        modelFile += '        /// <field name="' + section["_name"] + '" > Label: ' + section["labels"]["label"]["_description"] + '</field> \n ';
-                        modelFile += '        ' + section["_name"] + ':{ },\n';
-                        sectionNames.push(section["_name"]);
+                        sectionObject = modelGeneration.getSectionObject();
+                        sectionObject.description = section["labels"]["label"]["_description"];
+                        sectionObject.forms.push(formJSON[fcnt].name);
+                        sectionObject.sectionName = section["_name"];
+                        tabObject.section.push(sectionObject);
                     }
                 }
+                if (!(tabIndex > -1)) {
+                    tabArray.push(tabObject)
+                    tabNames.push(tabObject.tabName);
+                }
+                tabObject = null;
             }
+        }
+
+        modelFile += '    ' + tempData + '.tab = {\n';
+        for (var tcount = 0; tcount < tabArray.length; tcount++) {
+            modelFile += '        /// <field name="' + tabArray[tcount]["tabName"].split(" ").join("_") + '"> Label: ' + tabArray[tcount]["description"] + '\n ';
+            modelFile += '        /// <para />Name: ' + tabArray[tcount]["tabName"].toString() + ' \n';
+            modelFile += '        /// <para />Form Name: ' + tabArray[tcount]["forms"].toString() + ' </field>\n';
+            modelFile += '        ' + tabArray[tcount]["tabName"].split(" ").join("_") + ':{\n';
+            modelFile += '          name :"' + tabArray[tcount]["tabName"] + '",\n';
+            modelFile += '          section:{\n';
+            for (var scount = 0; scount < tabArray[tcount].section.length; scount++) {
+                modelFile += '                /// <field name="' + tabArray[tcount].section[scount]["sectionName"].split(" ").join("_") + '" > Label: ' + tabArray[tcount].section[scount]["description"] + '\n ';
+                modelFile += '                /// <para />Name: ' + tabArray[tcount].section[scount]["sectionName"] + '\n';
+                modelFile += '                /// <para />Form Name: ' + tabArray[tcount].section[scount]["forms"].toString() + ' </field>\n';
+                modelFile += '                ' + tabArray[tcount].section[scount]["sectionName"].split(" ").join("_") + ':{\n'
+                modelFile += '                 name :"' + tabArray[tcount].section[scount]["sectionName"] + '"\n';
+                modelFile += '                },\n';
+            }
+            modelFile += '           },\n';
+            modelFile += '        },\n';
         }
         modelFile += '      }\n\n'
 
@@ -174,14 +213,31 @@ var modelGeneration = {
         var headerNames = [];
         modelFile += '    ' + tempData + '.header = {\n';
         //for headers
+
         for (var fcount = 0; fcount < formJSON.length; fcount++) {
-            for (var hcount = 0; hcount < formJSON[fcount]["header"]["rows"]["row"]["cell"].length; hcount++) {
-                var cell = formJSON[fcount]["header"]["rows"]["row"]["cell"][hcount];
-                if (headerNames.indexOf(cell["_datafieldname"]) > -1) {
-                    continue;
+
+            if (!MK.Validation.isArray(formJSON[fcount].form["header"]["rows"]["row"])) {
+                for (var hcount = 0; hcount < formJSON[fcount].form["header"]["rows"]["row"]["cell"].length; hcount++) {
+                    var cell = formJSON[fcount].form["header"]["rows"]["row"]["cell"][hcount];
+                    if (!cell["control"] || headerNames.indexOf(cell["control"]["_datafieldname"]) > -1) {
+                        continue;
+                    }
+                    modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData + '.field.' + [cell["control"]["_datafieldname"]] + ',\n';
+                    headerNames.push(cell["control"]["_datafieldname"]);
                 }
-                modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData+'.field.' + [cell["control"]["_datafieldname"]] + ',\n';
-                headerNames.push(cell["_datafieldname"]);
+            }
+            else {
+                for (var rcount = 0; rcount < formJSON[fcount].form["header"]["rows"]["row"].length; rcount++) {
+                    for (var hcount = 0; hcount < formJSON[fcount].form["header"]["rows"]["row"][rcount]["cell"].length; hcount++) {
+                        var cell = formJSON[fcount].form["header"]["rows"]["row"][rcount]["cell"][hcount];
+                        if (!cell["control"] || headerNames.indexOf(cell["control"]["_datafieldname"]) > -1) {
+                            continue;
+                        }
+                        modelFile += '        ' + cell["control"]["_datafieldname"] + ':' + tempData + '.field.' + [cell["control"]["_datafieldname"]] + ',\n';
+                        headerNames.push(cell["control"]["_datafieldname"]);
+                    }
+                }
+
             }
         }
         modelFile += '      }\n\n'
@@ -200,23 +256,53 @@ var modelGeneration = {
         modelFile += '         MK.FSG.Main.FieldProperties(' + tempData + '.header[key],' + '"header_"+' + 'key, dataType);\n';
         modelFile += '      }\n\n\n';
 
+        modelFile += '    var sectionObj = {};\n';
+        modelFile += '    for (var key in ' + tempData + '.tab) {\n';
+        modelFile += '        sectionObj = ' + tempData + '.tab[key].section;\n';
+        modelFile += '        MK.FSG.Main.TabProperties(' + tempData + '.tab[key], ' + tempData + '.tab[key].name);\n';
+        modelFile += '        for (var keySection in sectionObj) {\n';
+        modelFile += '            MK.FSG.Main.SectionProperties(' + tempData + '.tab[key].section[keySection], key, ' + tempData + '.tab[key].section[keySection].name);\n';
+        modelFile += '        }\n';
+        modelFile += '    }\n\n\n';
+
+        modelFile += '    ' + tempData + '.userSetting = {}\n';
+        modelFile += '    MK.FSG.Main.UserSettings(' + tempData + '.userSetting);\n';
+
         modelFile += '    return ' + tempData + ';\n';
         modelFile += '}\n\n\n';
-        modelFile += '    if (MK.FSG.Main && !MK.FSGEntity) {\n';
-        modelFile += '         MK.FSGEntity = new MK.FSG.Model();\n';
-        modelFile += '    }\n';
+        modelFile += 'if (MK.FSG.Main && !MK.FSGEntity) {\n';
+        modelFile += '    MK.FSGEntity = new MK.FSG.Model();\n';
+        modelFile += '}\n';
         modelFile += 'var currentDate = new Date();';
         modelFile += 'console.log("MK.FSG.Model successfully loaded on " + currentDate.toLocaleDateString() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + ":" + currentDate.getMilliseconds())';
 
         var a = document.getElementById("downloadModelLink");
         var file = new Blob([modelFile], { type: "text/plain" });
-        a.href = URL.createObjectURL(file);
-        a.download = tempData + ".js";
+        modelGeneration.data.fileBlob = file;
+
         $(".msgloading").hide();
     },
 
+    getTabObject: function () {
+        "use strict";
+        return {
+            tabName: "",
+            description: "",
+            forms: [],
+            section: []
+        }
+    },
+    getSectionObject: function () {
+        "use strict";
+        return {
+            sectionName: "",
+            description: "",
+            forms: []
+        }
+    },
     errorHandler: function (error) {
         "use strict";
+        $(".msgloading").hide();
         Xrm.Utility.alertDialog(error.message, null);
     },
     donloadFile: function (value) {
@@ -229,7 +315,22 @@ var modelGeneration = {
                 document.getElementById("downloadFSGExampleLink").click();
                 break;
             case "entityModel":
-                document.getElementById("downloadModelLink").click();
+                var a = document.getElementById("downloadModelLink");
+                var data = modelGeneration.data.attributeMetadata;
+                var tempData = data.LogicalName.toLowerCase() + "Model";
+                if (!modelGeneration.data.fileBlob) {
+                    alert("Please select entity.");
+                    return;
+                }
+                if (window.navigator.msSaveBlob) {
+                    window.navigator.msSaveBlob(modelGeneration.data.fileBlob, tempData + ".js");
+                }
+                else {
+                    a.download = tempData + ".js";
+                    a.href = URL.createObjectURL(modelGeneration.data.fileBlob);
+                    document.getElementById("downloadModelLink").click();
+
+                }
                 break;
         }
     },
@@ -252,4 +353,27 @@ var modelGeneration = {
         }
 
     }
+}
+
+// Auto-log uncaught JS errors
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+
+    $(".msgloading").hide();
+    var string = msg.toLowerCase();
+    var substring = "script error";
+    if (string.indexOf(substring) > -1) {
+        alert('Script Error: See Browser Console for Detail');
+    } else {
+        var message = [
+            'Message: ' + msg,
+            'URL: ' + url,
+            'Line: ' + lineNo,
+            'Column: ' + columnNo,
+            'Error object: ' + JSON.stringify(error)
+        ].join(' - ');
+
+        alert(message);
+    }
+
+    return false;
 }

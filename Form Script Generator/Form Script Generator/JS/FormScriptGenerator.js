@@ -16,7 +16,7 @@
 * Date: 31 July, 2016
 *
 * Special Thanks:
-*   Somesh Siripuram (Sr.Technical Consultant at CloudFronts)
+*   Somesh Siripuram 
 * Date: July, 2016
 
 * What's new:
@@ -102,6 +102,27 @@
 *                       11.getOrgUniqueName
 *                       12.getQueryStringParameters
 *                       13.getTimeZoneOffsetMinutes
+*   
+*   Version: 1.0
+*   Date: March, 2017
+*
+*       New Functions - Tab Properties
+*                       1.getDisplayState
+*                       2.setDisplayState
+*                       3.getLabel
+*                       4.setLabel
+*                       5.setFocus
+*                       6.getVisible
+*                       7.setVisible
+*                       8.getParent
+*                       9.getName
+*       New Function - Section Properties
+*                       1.getLabel
+*                       2.setLabel
+*                       3.getVisible
+*                       4.setVisible
+*                       5.getParent
+*                       6.getName
 **********************************************************************************************************
 */
 var MK = MK || {};
@@ -1789,24 +1810,387 @@ MK.FSG.Main = (function () {
             get: formProperties.prototype.getCurrentControl
         });
     };
-    var subGridProperties = function () {
+    var tabProperties = function (tabReference, tabName) {
+        "use strict";
+        if (!tabReference) {
+            return;
+        }
+        var _tabReference = tabReference;
+        var _tabName = tabName;
+        tabProperties.prototype = {
+            getDisplayState: function () {
+                /// <summary>
+                ///Returns a value that indicates whether the tab is collapsed or expanded.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.displayState).replace("{1}", _tabName));
+                }
+                if (_tabRef) {
+                    return _tabRef.getDisplayState();
+                }
+                return null;
+            },
+            setDisplayState: function (value) {
+                /// <summary>
+                /// Sets the tab to be collapsed or expanded.
+                /// </summary>
+                /// <returns type="String">
+                /// Valid argument values:
+                /// expanded
+                /// collapsed
+                /// </returns>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.displayState).replace("{1}", _tabName));
+                }
+
+                //value validation
+                if (!validation.isString(value)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.displayState).replace("{1}", _tabName).replace("{2}", dataType.string));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.setDisplayState(value);
+                }
+                return null;
+            },
+            getLabel: function () {
+                /// <summary>
+                ///Returns the tab label.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName));
+                }
+
+                //value validation
+                if (!validation.isString(value)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName).replace("{2}", dataType.string));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.getLabel(value);
+                }
+                return null;
+            },
+            setLabel: function (value) {
+                /// <summary>
+                ///Sets the label for the tab.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName));
+                }
+
+                //value validation
+                if (!validation.isString(value)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName).replace("{2}", dataType.string));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.setLabel(value);
+                }
+                return null;
+            },
+            setFocus: function (flag) {
+                /// <summary>
+                ///Sets the focus on the tab.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.focus).replace("{1}", _tabName));
+                }
+                //value validation
+                if (!validation.isBoolean(flag)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.focus).replace("{1}", _tabName).replace("{2}", dataType.boolean));
+                }
+
+                if (_tabRef && flag) {
+                    return _tabRef.setFocus();
+                }
+                return null;
+            },
+            getVisible: function () {
+                /// <summary>
+                ///Returns a value that indicates whether the tab is visible.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.visible).replace("{1}", _tabName));
+                }
+                if (_tabRef) {
+                    return _tabRef.getVisible();
+                }
+                return null;
+            },
+            setVisible: function (flag) {
+                /// <summary>
+                /// Returns a value that indicates whether the tab is visible.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.visible).replace("{1}", _tabName));
+                }
+                //value validation
+                if (!validation.isBoolean(flag)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.visible).replace("{1}", _tabName).replace("{2}", dataType.boolean));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.setVisible(flag);
+                }
+                return null;
+            },
+            getParent: function () {
+                /// <summary>
+                ///Returns the Xrm.Page.ui (client-side reference) object
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.parent).replace("{1}", _tabName));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.getParent();
+                }
+                return null;
+            },
+            getName: function () {
+                /// <summary>
+                ///Returns the name of the tab.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.name).replace("{1}", _tabName));
+                }
+
+                if (_tabRef) {
+                    return _tabRef.getName();
+                }
+                return null;
+            },
+        }
+
+        Object.defineProperty(_tabReference, "displayState", {
+            get: tabProperties.prototype.getDisplayState,
+            set: tabProperties.prototype.setDisplayState
+        });
+
+        Object.defineProperty(_tabReference, "label", {
+            get: tabProperties.prototype.getLabel,
+            set: tabProperties.prototype.setLabel
+        });
+
+        Object.defineProperty(_tabReference, "focus", {
+            set: tabProperties.prototype.setFocus
+        });
+
+        Object.defineProperty(_tabReference, "visible", {
+            get: tabProperties.prototype.getVisible,
+            set: tabProperties.prototype.setVisible
+        });
+
+        Object.defineProperty(_tabReference, "parent", {
+            get: tabProperties.prototype.getParent,
+        });
+    }
+    var sectionProperties = function (sectionReference, tabName, sectionName) {
+        "use strict";
+        if (!sectionReference) {
+            return;
+        }
+        var _sectionReference = sectionReference;
+        var _tabName = tabName;
+        var _sectionName = sectionName;
+        sectionProperties.prototype = {
+            getName: function () {
+                /// <summary>
+                ///Method to return the name of the section.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.name).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.name).replace("{1}", _sectionName));
+                }
+
+                if (_sectionObj) {
+                    return _sectionObj.getName();
+                }
+                return null;
+            },
+            getLabel: function () {
+                /// <summary>
+                ///Returns the label for the section.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.label).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.label).replace("{1}", _sectionName));
+                }
+
+                if (_sectionObj) {
+                    return _sectionObj.getLabel();
+                }
+                return null;
+            },
+            setLabel: function (value) {
+                /// <summary>
+                ///Sets the label for the section.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.label).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.label).replace("{1}", _sectionName));
+                }
+
+                //value validation
+                if (!validation.isString(value)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.label).replace("{1}", _sectionName).replace("{2}", dataType.string));
+                }
+
+                if (_sectionObj) {
+                    return _sectionObj.setLabel(value);
+                }
+            },
+            getVisible: function () {
+                /// <summary>
+                ///Returns a value that indicates whether the tab is visible.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.visible).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.visible).replace("{1}", _sectionName));
+                }
+
+                if (_sectionObj) {
+                    return _sectionObj.getVisible();
+                }
+                return null;
+            },
+            setVisible: function (flag) {
+                /// <summary>
+                /// Returns a value that indicates whether the tab is visible.
+                /// </summary>
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.visible).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.visible).replace("{1}", _sectionName));
+                }
+                //value validation
+                if (!validation.isBoolean(flag)) {
+                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.visible).replace("{1}", _sectionName).replace("{2}", dataType.boolean));
+                }
+                if (_sectionObj) {
+                    _sectionObj.setVisible(flag);
+                }
+
+
+                return null;
+            },
+            getParent: function () {
+                /// <summary>
+                ///Method to return the tab containing the section.
+                /// </summary>
+
+                var _tabRef = xrmProperties.getUI.tabs.get(_tabName);
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_tabRef) {
+                    throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.section.parent).replace("{1}", _tabName));
+                }
+                var _sectionObj = _tabRef ? _tabRef.sections.get(_sectionName) : null;
+
+                ///tab validation
+                if (defaultSettings.strictRule && !_sectionObj) {
+                    throw new Error(errorMessages.section_not_present.replace("{0}", propertyTypes.section.parent).replace("{1}", _sectionName));
+                }
+
+                if (_sectionObj) {
+                    return _sectionObj.getParent();
+                }
+            },
+        }
+
+        Object.defineProperty(_sectionReference, "name", {
+            get: sectionProperties.prototype.getName,
+        });
+
+        Object.defineProperty(_sectionReference, "label", {
+            get: sectionProperties.prototype.getLabel,
+            set: sectionProperties.prototype.setLabel
+        });
+
+        Object.defineProperty(_sectionReference, "visible", {
+            get: sectionProperties.prototype.getVisible,
+            set: sectionProperties.prototype.setVisible
+        });
+
+        Object.defineProperty(_sectionReference, "parent", {
+            get: sectionProperties.prototype.getParent,
+        });
 
     }
-    var iFRAMEProperties = function () {
 
-    }
     var defaultSettings = {
         strictRule: true,
     };
     //{0} represents property name , {1} represents field-name , {2} represents data-type 
     var errorMessages = {
         field_not_present: "Property '{0}' registered on the field '{1}' is required to be present on form.",
+        tab_not_present: "Property '{0}' registered on the tab '{1}' is required to be present on form.",
+        section_not_present: "Property '{0}' registered on the section '{1}' is required to be present on form.",
         field_not_present_on_process_stage: "Property '{0}' registered on the field '{1}' is required to be present on form.",
         xrm_object_not_found: "Xrm Object not found.",
-        invalid_property_value: "Property '{0}' registered on the field '{1}' requires a parameter to be a {2} value.",
+        invalid_property_value: "Property '{0}' registered on the field/tab/section '{1}' requires a parameter to be a {2} value.",
         field_property_not_support_for_phones_or_tablets: "Property '{0}' registered on the field '{1}' does not support for phone or tablet device.",
         property_not_support_for_tablets: "Property '{0}' does not support for phone or tablet device.",
-        property_not_support_for_phones_or_tablets: "Property '{0}' does not support for phone or tablet device."
+        property_not_support_for_phones_or_tablets: "Property '{0}' does not support for phone or tablet device.",
+        invalid_config_value: "Property '{0}' requires a parameter to be a {1} value."
     }
     var isMobileClient = (function () {
         return (XrmPage.context.client.getClient() == "Mobile");
@@ -1838,11 +2222,29 @@ MK.FSG.Main = (function () {
         }
         return formFactorType;
     })();
-    var userSettings = function (value) {
-        /// <summary>
-        /// 
-        /// </summary>
-        //alert(value);
+    var userSettings = function (fieldReference) {
+        "use strict";
+        if (!fieldReference) {
+            return;
+        }
+
+        var _fieldReference = fieldReference;
+        userSettings.prototype = {
+            setStrictRule: function (flag) {
+                ///parameter validation
+                if (!validation.isBoolean(flag)) {
+                    throw new Error(errorMessages.invalid_config_value.replace("{0}", propertyTypes.setting.strictRule).replace("{1}", dataType.boolean));
+                }
+                defaultSettings.strictRule = flag;
+            },
+            getStrictRule: function () {
+                return defaultSettings.strictRule;
+            }
+        }
+        Object.defineProperty(_fieldReference, "strictRule", {
+            get: userSettings.prototype.getStrictRule,
+            set: userSettings.prototype.setStrictRule
+        });
     };
     var dataType = {
         ///CRM field data types
@@ -1910,6 +2312,23 @@ MK.FSG.Main = (function () {
         },
         entity: {
             dataXml: "dataXml"
+        },
+        tab: {
+            displayState: "displayState",
+            label: "label",
+            visible: "visible",
+            parent: "parent",
+            focus: "focus",
+            name: "name",
+        },
+        section: {
+            name: "name",
+            label: "label",
+            visible: "visible",
+            parent: "parent"
+        },
+        setting: {
+            strictRule: "strictRule"
         }
 
     };
@@ -1981,13 +2400,15 @@ MK.FSG.Main = (function () {
         ContextProperties: contextProperties,
         FormProperties: formProperties,
         UserSettings: userSettings,
+        TabProperties: tabProperties,
+        SectionProperties: sectionProperties,
+
     }
 })();
 
 
 
 if (MK.FSG.Model && !MK.FSGEntity) {
-    alert("Main Load");
     MK.FSGEntity = new MK.FSG.Model();
 }
 var currentDate = new Date(); console.log("MK.FSG.Main successfully loaded on " + currentDate.toLocaleDateString() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds() + ":" + currentDate.getMilliseconds())

@@ -14,15 +14,6 @@
 
 var ExampleFSG = {
 
-    onLoad: function () {
-        // Make sure that you have register this function onLoad event in form script. This function should be first in onLoad event handler.
-        // Initialize new MK.Model and assigned to a global variable.
-        //   var test = { processFields: { name: "", dataType: "" }, }
-        //  MK.FSGEntity = new MK.Model("test");
-
-        //add On Key Press
-        //   MK.FSGEntity.field.name.addOnKeyPress = ExampleFSG.autoComplete;
-    },
 
     setFormFields: function () {
 
@@ -30,12 +21,8 @@ var ExampleFSG = {
         /// This function contains all the methods that are applicable on field.
         /// </summary>
 
-        debugger;
-
-
-        //var test=  MK.FSGEntity.field.versionnumber.value;
-
-        
+        //getValue
+        var test = MK.FSGEntity.field.versionnumber.value;
 
         ///set value to name field(String Type)
         MK.FSGEntity.field.name.value = "Demo Example - 15/08/2016";
@@ -157,16 +144,14 @@ var ExampleFSG = {
         // MK.FSGEntity.field.name.fireOnKeyPress = true;
 
         // getAttribute 
-        
+
 
     },
-
     filterCondition: function () {
         //add custom filter
         var filterXML = "<filter type='and'><condition attribute='customertypecode' operator='eq' value='1' /></filter>";
         MK.FSGEntity.field.parentaccountid.addCustomFilter = { filter: filterXML, entityName: "account" };
     },
-
     autoComplete: function () {
         /// <summary>
         /// Sample JavaScript code to demonstrate the auto-completion feature.
@@ -218,7 +203,6 @@ var ExampleFSG = {
             MK.FSGEntity.field.name.hideAutoComplete = true;
         }
     },
-
     formProperties: function () {
         /// <summary>
         /// This function captures all the methods that are present on forms in CRM.
@@ -247,7 +231,6 @@ var ExampleFSG = {
         var control = MK.FSGEntity.form.currentControl;
 
     },
-
     entityProperties: function () {
         /// <summary>
         /// This function captures all the methods to get the entity related properties
@@ -272,7 +255,6 @@ var ExampleFSG = {
         // get primary attribute value
         var primaryValue = MK.FSGEntity.primaryAttributevalue;
     },
-
     contextProperties: function () {
         /// <summary>
         /// This function contains all  the methods to get properties and values that are present in context.
@@ -318,7 +300,62 @@ var ExampleFSG = {
         //getTimeZoneOffsetMinutes
         var timeZoneOffset = MK.FSGEntity.context.timeZoneOffsetMinutes;
     },
-  
+    tabProperties: function () {
+        "use strict";
+
+        //getVisible
+        var isVisible = MK.FSGEntity.tab.DETAILS_TAB.visible;
+
+        //setVisible
+        MK.FSGEntity.tab.DETAILS_TAB.visible = false;
+
+        //getDisplayState
+        var displayState = MK.FSGEntity.tab.DETAILS_TAB.displayState;
+
+        //setDisplayState
+        MK.FSGEntity.tab.DETAILS_TAB.displayState = "collapsed";
+
+        //setFocus
+        MK.FSGEntity.tab.DETAILS_TAB.focus = true;
+
+        //getLabel
+        var lable = MK.FSGEntity.tab.DETAILS_TAB.label
+
+        //setLabel
+        MK.FSGEntity.tab.DETAILS_TAB.label = "Details Tab";
+
+        //getName
+        var name = MK.FSGEntity.tab.DETAILS_TAB.name;
+
+        //getParent
+        var parent = MK.FSGEntity.tab.DETAILS_TAB.parent;
+
+    },
+    sectionProperties: function () {
+        "use strict";
+
+        //getLabel
+        var label = MK.FSGEntity.tab.DETAILS_TAB.section.COMPANY_PROFILE.label;
+
+        //setLabel
+        MK.FSGEntity.tab.DETAILS_TAB.section.COMPANY_PROFILE.label = "Company Details";
+
+        //getName
+        var name = MK.FSGEntity.tab.DETAILS_TAB.section.BILLING.name;
+
+        //getParent;
+        var parent = MK.FSGEntity.tab.DETAILS_TAB.section.MARKETING.parent;
+
+        //setVisible
+        MK.FSGEntity.tab.DETAILS_TAB.section.MARKETING.visible = false;
+
+        //getVisible
+        MK.FSGEntity.tab.DETAILS_TAB.section.MARKETING.visible;
+
+    },
+    onLoad: function () {
+
+    },
 };
 
 
