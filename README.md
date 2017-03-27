@@ -32,8 +32,8 @@
 
 ## Get started
 The wiki has a great section on how to get started
-- Documentation: Github wiki
-- Feedback: Open an issue
+- Documentation: [Github wiki](https://github.com/mihirkadam/FormScriptGenerator/wiki)
+- Feedback: [Open an issue](https://github.com/mihirkadam/FormScriptGenerator/issues)
 
 ## Compatibility Matrix
 ### CRM Online 
@@ -62,7 +62,7 @@ Following are SDK functions are supported by latest release
 ### Version: 1.0
 - Date: 1 Nov, 2016
 
-      *[Field Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Field-Properties)
+      * Field Properties
 
                        1. setValue 
                        2. getValue 
@@ -109,7 +109,7 @@ Following are SDK functions are supported by latest release
                        43. hideAutoComplete
                        44. getAttribute
 
-      *[Form Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Form-Properties)
+      * Form Properties
 
                        1. close
                        2. getFormType
@@ -120,7 +120,7 @@ Following are SDK functions are supported by latest release
                        7. refreshRibbon
                        8. getCurrentControl
 
-      *[Entity Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Entity-Properties)
+      * Entity Properties
 
                        1. getEntityName
                        2. getId
@@ -129,7 +129,7 @@ Following are SDK functions are supported by latest release
                        5. getDataXml
                        6. getPrimaryAttributeValue
 
-      *[Context Properties](https://github.com/mihirkadam/FormScriptGenerator/wiki/Context-Properties)
+      * Context Properties
 
                        1. getClientUrl
                        2. getUserId
@@ -150,8 +150,7 @@ Following are SDK functions are supported by latest release
 2. Access business process fields.
 
 ## Planned Features 
-1. Access tab and section present of the form.
-2. Access grid , web resources and iFrame. 
+Access grid , web resources and iFrame. 
 
 ## Feature Request
 Take charge and [add your idea](http://feathub.com/mihirkadam/Form-Script-Generator) or [vote on your favorite feature](http://feathub.com/mihirkadam/Form-Script-Generator) to be implemented:
