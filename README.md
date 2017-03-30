@@ -8,6 +8,9 @@
 - Visual Studio IntelliSense for Dynamics CRM functions.
 - Field validations.
 
+## Releases 
+- 1.0
+
 ### Following are some screen capture 
 ![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true "Visual Studio IntelliSense")
 ![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true "Visual Studio IntelliSense")
