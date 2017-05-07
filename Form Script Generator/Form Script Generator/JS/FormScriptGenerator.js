@@ -1205,7 +1205,7 @@ MK.FSG.Main = (function () {
                 /// Use this method to apply changes to lookups based on values current just as the user is about to view results for the lookup.
                 /// </summary>
                 /// <param name="value" type="Function">
-                /// True if the fireOnChange should be execute; otherwise, false.
+                /// 
                 /// </param>
                 var _fieldControl = xrmProperties.getControl(_fieldName);
                 ///field validation
@@ -1330,7 +1330,7 @@ MK.FSG.Main = (function () {
                 /// Returns a string value of the text for the currently selected option for an optionset attribute.
                 /// </summary>
                 /// <returns type="String">
-                /// Array of option objects.
+                /// 
                 /// <returns/>
                 var _fieldControl = xrmProperties.getAttribute(_fieldName);
                 ///field validation

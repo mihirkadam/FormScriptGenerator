@@ -109,7 +109,7 @@ var ExampleFSG = {
         MK.FSGEntity.field.parentaccountid.defaultView = "D234426E-1F37-4944-9255-50E19B541C4C";
 
         //set Notification
-        MK.FSGEntity.field.name.notification = { message: "Enter Appropriate", uniqueId: "1", level: "ERROR" }
+        MK.FSGEntity.field.name.notification = { message: "Enter Appropriate", uniqueId: "1"}
 
         //clear Notification
         MK.FSGEntity.field.name.clearNotification = "1";
