@@ -15,7 +15,7 @@
 ![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Field-1.png?raw=true "Visual Studio IntelliSense")
 ![Alt text](https://github.com/mihirkadam/Form-Script-Generator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-1.png?raw=true "Visual Studio IntelliSense")
 ![Alt text](https://github.com/mihirkadam/FormScriptGenerator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/VSIntelliSense-Property-2.png?raw=true "Visual Studio IntelliSense")
-
+![Alt text](https://github.com/mihirkadam/FormScriptGenerator/blob/master//Form%20Script%20Generator/Form%20Script%20Generator/Images/Configuration-4.gifg?raw=true "Visual Studio IntelliSense")
 
 
 
