@@ -109,7 +109,7 @@ var ExampleFSG = {
         MK.FSGEntity.field.parentaccountid.defaultView = "D234426E-1F37-4944-9255-50E19B541C4C";
 
         //set Notification
-        MK.FSGEntity.field.name.notification = { message: "Enter Appropriate", uniqueId: "1"}
+        MK.FSGEntity.field.name.notification = { message: "Enter Appropriate", uniqueId: "1" }
 
         //clear Notification
         MK.FSGEntity.field.name.clearNotification = "1";
@@ -134,7 +134,7 @@ var ExampleFSG = {
         //set show time
         MK.FSGEntity.field.createdon.showTime = false;
 
-
+        
 
         //remove on key press
         //  MK.FSGEntity.field.name.removeOnKeyPress = ExampleFSG.autoComplete;
@@ -352,11 +352,13 @@ var ExampleFSG = {
         //getVisible
         MK.FSGEntity.tab.DETAILS_TAB.section.MARKETING.visible;
 
+
     },
     onLoad: function () {
 
     },
 };
+
 
 
 

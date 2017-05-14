@@ -1867,13 +1867,8 @@ MK.FSG.Main = (function () {
                     throw new Error(errorMessages.tab_not_present.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName));
                 }
 
-                //value validation
-                if (!validation.isString(value)) {
-                    throw new Error(errorMessages.invalid_property_value.replace("{0}", propertyTypes.tab.label).replace("{1}", _tabName).replace("{2}", dataType.string));
-                }
-
                 if (_tabRef) {
-                    return _tabRef.getLabel(value);
+                    return _tabRef.getLabel();
                 }
                 return null;
             },

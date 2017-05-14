@@ -54,6 +54,7 @@ var modelGeneration = {
         $("#dropDownEntities").append(combo);
         modelGeneration.sortSelect('#entityId', 'text', 'asc');
         combo.prepend("<option value='0' selected>Select</option>");
+        $("#dropDownEntities option[value='0']").prop('selected', true);
         modelGeneration.BindEvents();
         $(".msgloading").hide();
     },

@@ -418,37 +418,88 @@ MK.FSG.Model = function (value) {
     }
 
     accountModel.tab = {
-        /// <field name="SUMMARY_TAB"> Label: Summary</field>
-        SUMMARY_TAB: {},
-        /// <field name="DETAILS_TAB"> Label: Details</field>
-        DETAILS_TAB: {},
-    }
-
-    accountModel.section = {
-        /// <field name="ACCOUNT_INFORMATION" > Label: ACCOUNT INFORMATION</field> 
-        ACCOUNT_INFORMATION: {},
-        /// <field name="ADDRESS" > Label: ADDRESS</field> 
-        ADDRESS: {},
-        /// <field name="MapSection" > Label: </field> 
-        MapSection: {},
-        /// <field name="COMPANY_PROFILE" > Label: COMPANY PROFILE</field> 
-        COMPANY_PROFILE: {},
-        /// <field name="DETAILS_TAB_section_6" > Label: Description</field> 
-        DETAILS_TAB_section_6: {},
-        /// <field name="MARKETING" > Label: MARKETING</field> 
-        MARKETING: {},
-        /// <field name="CONTACT_PREFERENCES" > Label: CONTACT PREFERENCES</field> 
-        CONTACT_PREFERENCES: {},
-        /// <field name="BILLING" > Label: BILLING</field> 
-        BILLING: {},
-        /// <field name="SHIPPING" > Label: SHIPPING</field> 
-        SHIPPING: {},
-        /// <field name="ChildAccounts" > Label: CHILD ACCOUNTS</field> 
-        ChildAccounts: {},
+        /// <field name="SUMMARY_TAB"> Label: Summary
+        /// <para />Name: SUMMARY_TAB 
+        /// <para />Form Name: Account </field>
+        SUMMARY_TAB: {
+            name: "SUMMARY_TAB",
+            section: {
+                /// <field name="ACCOUNT_INFORMATION" > Label: ACCOUNT INFORMATION
+                /// <para />Name: ACCOUNT_INFORMATION
+                /// <para />Form Name: Account </field>
+                ACCOUNT_INFORMATION: {
+                    name: "ACCOUNT_INFORMATION"
+                },
+                /// <field name="ADDRESS" > Label: ADDRESS
+                /// <para />Name: ADDRESS
+                /// <para />Form Name: Account </field>
+                ADDRESS: {
+                    name: "ADDRESS"
+                },
+                /// <field name="MapSection" > Label: 
+                /// <para />Name: MapSection
+                /// <para />Form Name: Account </field>
+                MapSection: {
+                    name: "MapSection"
+                },
+            },
+        },
+        /// <field name="DETAILS_TAB"> Label: Details
+        /// <para />Name: DETAILS_TAB 
+        /// <para />Form Name: Account </field>
+        DETAILS_TAB: {
+            name: "DETAILS_TAB",
+            section: {
+                /// <field name="COMPANY_PROFILE" > Label: COMPANY PROFILE
+                /// <para />Name: COMPANY_PROFILE
+                /// <para />Form Name: Account </field>
+                COMPANY_PROFILE: {
+                    name: "COMPANY_PROFILE"
+                },
+                /// <field name="DETAILS_TAB_section_6" > Label: Description
+                /// <para />Name: DETAILS_TAB_section_6
+                /// <para />Form Name: Account </field>
+                DETAILS_TAB_section_6: {
+                    name: "DETAILS_TAB_section_6"
+                },
+                /// <field name="MARKETING" > Label: MARKETING
+                /// <para />Name: MARKETING
+                /// <para />Form Name: Account </field>
+                MARKETING: {
+                    name: "MARKETING"
+                },
+                /// <field name="CONTACT_PREFERENCES" > Label: CONTACT PREFERENCES
+                /// <para />Name: CONTACT_PREFERENCES
+                /// <para />Form Name: Account </field>
+                CONTACT_PREFERENCES: {
+                    name: "CONTACT_PREFERENCES"
+                },
+                /// <field name="BILLING" > Label: BILLING
+                /// <para />Name: BILLING
+                /// <para />Form Name: Account </field>
+                BILLING: {
+                    name: "BILLING"
+                },
+                /// <field name="SHIPPING" > Label: SHIPPING
+                /// <para />Name: SHIPPING
+                /// <para />Form Name: Account </field>
+                SHIPPING: {
+                    name: "SHIPPING"
+                },
+                /// <field name="ChildAccounts" > Label: CHILD ACCOUNTS
+                /// <para />Name: ChildAccounts
+                /// <para />Form Name: Account </field>
+                ChildAccounts: {
+                    name: "ChildAccounts"
+                },
+            },
+        },
     }
 
     accountModel.header = {
-        revenue: undefined.fieldrevenue,
+        revenue: accountModel.field.revenue,
+        numberofemployees: accountModel.field.numberofemployees,
+        ownerid: accountModel.field.ownerid,
     }
 
     var dataType = {};
@@ -467,6 +518,18 @@ MK.FSG.Model = function (value) {
     }
 
 
+    var sectionObj = {};
+    for (var key in accountModel.tab) {
+        sectionObj = accountModel.tab[key].section;
+        MK.FSG.Main.TabProperties(accountModel.tab[key], accountModel.tab[key].name);
+        for (var keySection in sectionObj) {
+            MK.FSG.Main.SectionProperties(accountModel.tab[key].section[keySection], key, accountModel.tab[key].section[keySection].name);
+        }
+    }
+
+
+    accountModel.userSetting = {}
+    MK.FSG.Main.UserSettings(accountModel.userSetting);
     return accountModel;
 }
 
