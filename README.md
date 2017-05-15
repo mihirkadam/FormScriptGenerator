@@ -1,4 +1,4 @@
-# Form Script Generator for Dynamics CRM 2016 update 1 and above.
+# Form Script Generator for Dynamics CRM 2016 and above.
 [![ghit.me](https://ghit.me/badge.svg?repo=mihirkadam/Form-Script-Generator)](https://ghit.me/repo/mihirkadam/Form-Script-Generator)
 >Helps you to write Dynamics CRM form scripts in more efficient and easy way with the help of VS IntelliSense. :sparkles: :boom:
   
@@ -40,15 +40,15 @@ The wiki has a great section on how to get started
 
 ## Compatibility Matrix
 ### CRM Online 
-| <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px" /><br />2016 Update 1 | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="Dynamics 365" width="16px" height="16px" /><br />Dynamics 365 | 
-| --------- | --------- | 
-| v8.1| v8.2 | 
+| <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px" /><br />2016 | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="2016 Update 1" width="16px" height="16px" /><br />2016 Update 1 | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/dynamics-crm-logo.png?raw=true" alt="Dynamics 365" width="16px" height="16px" /><br />Dynamics 365 | 
+| --------- | --------- | --------- | 
+| v8.0 | v8.1| v8.2 | 
 
 ### Browsers 
 
 | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png?" alt="Edge" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)<br />Edge | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)<br />Firefox | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)<br />Chrome | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)<br />Safari | [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/opera.png" alt="Opera" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)<br />Opera | 
 | --------- | --------- | --------- | --------- | --------- |
-| v38.0| v49.0 | v54.0 |v5.1| v41.0
+
 
 ### Phones 
 | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/android_logo.jpg?raw=true" alt="Android" width="20px" height="20px" /><br />Android | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/apple-logo.png?raw=true" alt="iOS" width="16px" height="16px" /><br />iOS | <img src="https://github.com/mihirkadam/Form-Script-Generator/blob/master/Form%20Script%20Generator/Form%20Script%20Generator/Images/windows-logo.jpg?raw=true" alt="Windows" width="20px" height="20px" /><br />Windows | 
