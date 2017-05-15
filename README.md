@@ -147,6 +147,27 @@ Following are SDK functions are supported by latest release
                        11. getOrgUniqueName
                        12. getQueryStringParameters
                        13. getTimeZoneOffsetMinutes
+                       
+      * Tab Properties
+      
+                       1. getDisplayState
+                       2. setDisplayState
+                       3. getLabel
+                       4. setLabel
+                       5. setFocus
+                       6. getVisible
+                       7. setVisible
+                       8. getParent
+                       9. getName
+       
+       * Section Properties
+      
+                       1. getLabel
+                       2. setLabel
+                       3. getVisible
+                       4. setVisible
+                       5. getParent
+                       6. getName
 
 ## What’s coming in Next Release  
 1. Utility functions from Dynamics CRM SDK.
