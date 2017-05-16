@@ -32,6 +32,7 @@
 - No need to remember the logical name of the field.
 - Field properties will be filtered by data type.
 - Auto field validation if selected field is not present the form.
+- Access tabs and sections present in the form.
 
 ## Get started
 The wiki has a great section on how to get started
