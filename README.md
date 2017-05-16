@@ -182,7 +182,7 @@ Take charge and [add your idea](http://feathub.com/mihirkadam/Form-Script-Genera
 
 
 ## Minimum Software Requirement 
-- Visual Studio 2013 or above.
+- Visual Studio.
 
 ## License
 MIT - see [ MIT licence information](LICENSE)
